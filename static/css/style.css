@@ -1,0 +1,25 @@
+.navBar,
+.footer {
+    background: linear-gradient(to right, #D652F0, #52C0F0, #5DF052, #52C0F0, #D652F0);
+    height: 80px;
+}
+
+.navBar {
+    padding: 10px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+}
+
+.mainBody {
+    background-image: url("/static/images/orch2.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+}

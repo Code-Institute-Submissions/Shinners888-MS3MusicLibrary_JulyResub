@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Welcome Home</h1>
-
+<h1 class="blue-text center-align">Misanthropic Unicorns Symphony Orchestra</h1>
+<h2 class="blue-text center-align">Presents</h2>
+{% for work in works %}
+<div class="card light-blue darken-4 text-shadow center-align">
+    <div class="card-content white-text">
+        <span class="card-title">{{ work.composer }}</span>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
