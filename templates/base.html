@@ -10,6 +10,7 @@
         crossorigin="anonymous" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <title>Document</title>
 </head>
@@ -20,7 +21,8 @@
             <nav class="navBar">
                 <div class="nav-wrapper">
                     <a href="{{ url_for('home') }}" class="brand-logo">MUSO</a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-sliders-h"></i></a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+                            class="material-icons">more_vert</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#">Whats On?</a></li>
                         <li><a href="#">Browse</a></li>
