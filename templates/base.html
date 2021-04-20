@@ -30,7 +30,7 @@
                         <li><a href="#">Whats On?</a></li>
                         <li><a href="#">Browse</a></li>
                         <li><a href="#">Search</a></li>
-                        <li><a href="#">Log In/Out</a></li>
+                        <li><a href="{{ url_for('login') }}">Log In/Out</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                     </ul>
                 </div>
@@ -41,10 +41,22 @@
                 <li><a href="#">Whats On?</a></li>
                 <li><a href="#">Browse</a></li>
                 <li><a href="#">Search</a></li>
-                <li><a href="#">Log In/Out</a></li>
+                <li><a href="{{ url_for('login') }}">Log In/Out</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
             </ul>
         </header>
+        <section>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="col s12 m7 flashMessages">
+                <h2 class="header">{{ message }}</h2>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+        </section>
         <main class="container">
             {% block content %}
             {% endblock %}

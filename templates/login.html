@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row textInputCard z-depth-5">
+    <h3 class="center">Log In</h3>
+    <form class="col s12" method="POST" action="{{ url_for('login') }}">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                <label for="username"><i class="far fa-user-circle"></i> Username</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" name="password" type="password" minlength="5" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                <label for="password"><i class="fas fa-unlock-alt"></i> Password</label>
+            </div>
+        </div>
+        <div class="center">
+            <button type="submit" class="waves-effect deep-purple accent-1 white-text btn-large">Log In</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
