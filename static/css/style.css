@@ -1,18 +1,35 @@
+/*
+font-family: 'Dancing Script', cursive;
+
+*/
+html * {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: black;
+}
+
 .navBar,
 .footer {
     background: linear-gradient(to right, #D652F0, #52C0F0, #5DF052, #52C0F0, #D652F0);
     height: 80px;
 }
 
+.navBar ul li,
+.navBar ul li a,
+.footer {
+    font-size: 20px;
+}
+
 .navBar {
     padding: 10px;
+    font-size: 30px;
 }
 
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 15px;
+    padding: 8px;
 }
 
 .mainBody {
@@ -22,4 +39,24 @@
     background-repeat: no-repeat;
     background-size: cover;
     bottom: 0;
+}
+
+.textInputCard {
+    background-color: rgba(214, 82, 240, 0.4);
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.textInputCard h3 {
+    color: white;
+    font-weight: 600;
+}
+
+.textInputCard label,
+.textInputCard .input-field,
+.textInputCard i {
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
 }

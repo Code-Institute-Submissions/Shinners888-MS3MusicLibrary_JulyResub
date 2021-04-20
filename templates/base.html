@@ -12,6 +12,9 @@
         type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -28,6 +31,7 @@
                         <li><a href="#">Browse</a></li>
                         <li><a href="#">Search</a></li>
                         <li><a href="#">Log In/Out</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
                     </ul>
                 </div>
             </nav>
@@ -38,6 +42,7 @@
                 <li><a href="#">Browse</a></li>
                 <li><a href="#">Search</a></li>
                 <li><a href="#">Log In/Out</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
             </ul>
         </header>
         <main class="container">
@@ -48,6 +53,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
         {% block scripts %}
         {% endblock %}
 
