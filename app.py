@@ -45,7 +45,7 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("home", username=session["user"]))
+        return redirect(url_for("mymusic", username=session["user"]))
     return render_template("register.html")
 
 
@@ -61,7 +61,7 @@ def login():
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
                     return redirect(url_for(
-                        "home", username=session["user"]))
+                        "mymusic", username=session["user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -71,6 +71,13 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/mymusic/<username>", methods=["GET", "POST"])
+def mymusic(username):
+    username = mongo.db.site_users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("mymusic.html", username=username)
 
 
 if __name__ == "__main__":

@@ -29,7 +29,7 @@
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#">Whats On?</a></li>
                         <li><a href="#">Browse</a></li>
-                        <li><a href="#">Search</a></li>
+                        <li><a href="{{ url_for('mymusic', username=session['user']) }}">My Music</a></li>
                         <li><a href="{{ url_for('login') }}">Log In/Out</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                     </ul>
@@ -40,7 +40,7 @@
                 <li><a href="{{ url_for('home') }}">MUSO</a></li>
                 <li><a href="#">Whats On?</a></li>
                 <li><a href="#">Browse</a></li>
-                <li><a href="#">Search</a></li>
+                <li><a href="{{ url_for('mymusic', username=session['user']) }}">My Music</a></li>
                 <li><a href="{{ url_for('login') }}">Log In/Out</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
             </ul>
