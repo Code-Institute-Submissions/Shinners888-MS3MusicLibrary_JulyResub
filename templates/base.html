@@ -30,7 +30,8 @@
                         <li><a href="#">Whats On?</a></li>
                         <li><a href="#">Browse</a></li>
                         <li><a href="{{ url_for('mymusic', username=session['user']) }}">My Music</a></li>
-                        <li><a href="{{ url_for('login') }}">Log In/Out</a></li>
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                     </ul>
                 </div>
@@ -41,7 +42,8 @@
                 <li><a href="#">Whats On?</a></li>
                 <li><a href="#">Browse</a></li>
                 <li><a href="{{ url_for('mymusic', username=session['user']) }}">My Music</a></li>
-                <li><a href="{{ url_for('login') }}">Log In/Out</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
             </ul>
         </header>

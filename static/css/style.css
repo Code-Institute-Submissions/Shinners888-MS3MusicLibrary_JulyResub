@@ -8,6 +8,10 @@ html * {
     color: black;
 }
 
+.card {
+    border-radius: 20px;
+}
+
 .navBar,
 .footer {
     background: linear-gradient(to right, #D652F0, #52C0F0, #5DF052, #52C0F0, #D652F0);
@@ -43,7 +47,7 @@ html * {
 
 .textInputCard {
     background-color: rgba(214, 82, 240, 0.4);
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 10px;
     border-radius: 20px;
 }
@@ -68,7 +72,7 @@ form button {
     font-weight: 600;
 }
 
-.flashMessages,
+
 .flashMessages h2 {
     background-color: rgba(214, 82, 240, 0.4);
     margin-top: 20px;
