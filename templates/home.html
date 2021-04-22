@@ -3,12 +3,7 @@
 <div class="textInputCard homePage">
     <h1 class="light-green-text accent-3 center-align">Misanthropic Unicorns Symphony Orchestra</h1>
     <h2 class="light-green-text accent-3 center-align">Presents</h2>
-    {% for work in works %}
-    <div class="card light-blue darken-4 center-align">
-        <div class="card-content white-text">
-            <span class="light-green-text accent-3 card-title">{{ work.composer }}</span>
-        </div>
+    <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src="/static/images/orch2.jpg"></a>
     </div>
-</div>
-{% endfor %}
-{% endblock %}
+    {% endblock %}

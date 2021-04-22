@@ -45,11 +45,20 @@ html * {
     bottom: 0;
 }
 
+
 .textInputCard {
     background-color: rgba(214, 82, 240, 0.4);
     margin-top: 40px;
     padding: 10px;
     border-radius: 20px;
+
+}
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-color: rgba(214, 82, 240, 0.4) !important;
+    background-image: none !important;
+    color: green;
 }
 
 .textInputCard h3,
