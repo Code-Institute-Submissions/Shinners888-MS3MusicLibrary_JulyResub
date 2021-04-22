@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="carousel carousel-slider center">
+    <div class="carousel-fixed-item center">
+        <a class="btn waves-effect white grey-text darken-text-2">button</a>
+    </div>
+    {% for work in works %}
+    <div class="carousel-item red white-text" href="#one!">
+        <h2>{{ work.composer }}</h2>
+        <h2>{{ work.work }}</h2>
+        <p class="white-text">{{ work.description }}</p>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}

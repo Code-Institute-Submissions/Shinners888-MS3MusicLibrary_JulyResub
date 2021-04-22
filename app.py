@@ -27,6 +27,12 @@ def home():
     return render_template("home.html", works=works)
 
 
+@app.route("/browse")
+def browse():
+    works = mongo.db.works.find()
+    return render_template("browse.html", works=works)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

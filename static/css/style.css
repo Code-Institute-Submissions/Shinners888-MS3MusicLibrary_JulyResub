@@ -1,9 +1,9 @@
 /*
-font-family: 'Dancing Script', cursive;
+font-family: 'Lobster Two', cursive;
 
 */
 html * {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Lobster Two', cursive;
     font-weight: 700;
     color: black;
 }
@@ -47,8 +47,8 @@ html * {
 
 
 .textInputCard {
-    background-color: rgba(214, 82, 240, 0.4);
-    margin-top: 40px;
+    background-color: rgba(214, 82, 240, 0.6);
+    margin-top: 20px;
     padding: 10px;
     border-radius: 20px;
 
@@ -56,7 +56,7 @@ html * {
 
 input:-internal-autofill-selected {
     appearance: menulist-button;
-    background-color: rgba(214, 82, 240, 0.4) !important;
+    background-color: rgba(214, 82, 240, 0.6) !important;
     background-image: none !important;
     color: green;
 }
