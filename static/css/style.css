@@ -46,7 +46,8 @@ html * {
 }
 
 
-.textInputCard {
+.textInputCard,
+.carousel-item {
     background-color: rgba(214, 82, 240, 0.6);
     margin-top: 20px;
     padding: 10px;
@@ -90,4 +91,9 @@ form button {
     color: white;
     text-align: center;
     font-weight: 600;
+}
+
+.carousel {
+    margin-top: 40px;
+
 }
