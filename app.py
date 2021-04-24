@@ -99,7 +99,9 @@ def logout():
 
 @app.route("/add_work")
 def add_work():
-    return render_template("add_work.html")
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+    return render_template("add_work.html", genres=genres)
+    
 
 
 if __name__ == "__main__":
