@@ -55,12 +55,6 @@ html * {
 
 }
 
-input:-internal-autofill-selected {
-    appearance: menulist-button;
-    background-color: rgba(214, 82, 240, 0.6) !important;
-    background-image: none !important;
-    color: green;
-}
 
 .textInputCard h3,
 .textInputCard h5,
@@ -96,4 +90,11 @@ form button {
 .carousel {
     margin-top: 40px;
 
+}
+
+.spotifyButton {
+    border-radius: 30px;
+    border: 1px solid black;
+    padding: 3px 10px;
+    background-color: #1DB954;
 }
