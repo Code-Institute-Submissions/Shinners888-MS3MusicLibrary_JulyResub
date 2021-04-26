@@ -10,40 +10,41 @@
     </div>
 </div>
 <div class="row">
-    <form class="col s12">
+    <form class="col s12 workInputCard" method="POST" action="{{ url_for('add_work') }}">
         <div class="row">
             <div class="input-field col s12">
-                <select>
-                    <option value="" disabled selected>GENRE</option>
+                <select id="genre_name" name="genre_name" class="validate grey-text" required>
+                    <option value="" disabled selected>Work Genre</option>
                     {% for genre in genres %}
                     <option value="1">{{ genre.genre_name }}</option>
                     {% endfor %}
                 </select>
-                <label>Work Genre</label>
             </div>
             <div class="input-field col s12">
-                <input id="last_name" type="text" class="validate">
-                <label for="last_name">Last Name</label>
+                <input id="composer" name="composer" type="text" class="validate" required>
+                <label for="composer">Composer Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="disabled" type="text" class="validate">
-                <label for="disabled">Disabled</label>
+                <input id="work" name="work" type="text" class="validate" required>
+                <label for="work">Name of Work</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
+                <input id="description" name="description" type="text" class="validate">
+                <label for="description">A short description of the piece, or your favourite movement!</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
+                <input id="url" name="url" type="text" class="validate">
+                <label for="url">Have spotify or youtube link to a good recording? Paste that here!</label>
             </div>
         </div>
+        <button type="submit" class="btn-floating btn-large waves-effect waves-light"><i
+                class="material-icons">add</i></button>
     </form>
 </div>
 

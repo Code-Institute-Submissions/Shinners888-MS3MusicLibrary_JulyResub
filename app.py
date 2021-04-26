@@ -97,11 +97,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_work")
+@app.route("/add_work", methods=["GET", "POST"])
 def add_work():
-    genres = mongo.db.genres.find().sort("genre_name", 1)
+    if request.method == "POST":
+        work = {
+            "genre": request.form.get("genres.genre_name"),
+            "composer": request.form.get("composer"),
+            "work": request.form.get("work"),
+            "description": request.form.get("description"),
+            "url": request.form.get("url"),
+            "user_added": session["user"]
+        }
+        mongo.db.works.insert_one(work)
+        flash("Thank You For Contributing!!")
+        return redirect(url_for("browse"))
+    genres = mongo.db.genres.find().sort("genre_id", 1)
     return render_template("add_work.html", genres=genres)
-    
 
 
 if __name__ == "__main__":
