@@ -4,5 +4,12 @@ $(document).ready(function () {
 });
 $('.carousel.carousel-slider').carousel({
     fullWidth: true,
-    indicators: true
+    indicators: false,
+});
+$('#backButton').click(function () {
+    $('.carousel').carousel('prev');
+});
+
+$('#nextButton').click(function () {
+    $('.carousel').carousel('next');
 });

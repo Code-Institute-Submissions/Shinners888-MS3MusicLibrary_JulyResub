@@ -33,14 +33,14 @@ def browse():
     return render_template("browse.html", works=works)
 
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register", methods=['GET', 'POST'])
 def register():
-    if request.method == "POST":
+    if request.method == 'POST':
         user_already_exists = mongo.db.site_users.find_one(
             {"username": request.form.get("username").lower()})
 
         if user_already_exists:
-            flash("Oops, looks like someone already picked that username! Try again :)")
+            flash("Oops, someone already got that username! Try again :)")
             return redirect(url_for("register"))
 
         register = {
@@ -55,9 +55,9 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=['GET', 'POST'])
 def login():
-    if request.method == "POST":
+    if request.method == 'POST':
         user_already_exists = mongo.db.site_users.find_one(
             {"username": request.form.get("username").lower()})
 
@@ -79,7 +79,7 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/mymusic/<username>", methods=["GET", "POST"])
+@app.route("/mymusic/<username>", methods=['GET', 'POST'])
 def mymusic(username):
     username = mongo.db.site_users.find_one(
         {"username": session["user"]})["username"]
@@ -97,7 +97,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_work", methods=["GET", "POST"])
+@app.route("/add_work", methods=['GET', 'POST'])
 def add_work():
     if request.method == "POST":
         work = {

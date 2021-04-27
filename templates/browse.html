@@ -3,7 +3,6 @@
 
 <div class="carousel carousel-slider center">
     <div class="carousel-fixed-item center">
-        <a class="btn waves-effect white grey-text darken-text-2">button</a>
     </div>
     {% for work in works %}
     <div class="carousel-item white-text" href="#one!">
@@ -13,6 +12,9 @@
         <a class="spotifyButton" href="{{ work.url }}" target="_blank">Listen Here <i class="fab fa-spotify"></i></a>
     </div>
     {% endfor %}
+    <div class="row slider-center navButtons">
+        <i class="fas fa-backward left" id="backButton"></i>
+        <i class="fas fa-forward right" id="nextButton"></i> </div>
 </div>
 <h3 class="white-text center">Dont see something you like, add it <a href="{{ url_for('add_work') }}"><u
             class="white-text">here!</u></a></h3>

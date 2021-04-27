@@ -27,3 +27,8 @@ Register to create an account and see what pieces are popular or liked.
 Log in to access the full site and upload/edit your favourite pieces
 
 Browse what others have uploaded and follow the spotify link to listen
+
+
+
+Resources
+https://stackoverflow.com/questions/46454964/how-can-i-put-the-prev-and-next-arrow-in-materialize-carousel

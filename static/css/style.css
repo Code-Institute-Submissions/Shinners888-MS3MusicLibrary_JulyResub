@@ -1,9 +1,9 @@
 /*
-font-family: 'Lobster Two', cursive;
-
+font-family: 'Playfair Display', serif;
+font-family: 'Montserrat', sans-serif;
 */
 html * {
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: black;
 }
@@ -101,9 +101,23 @@ form button {
     border: 1px solid black;
     padding: 3px 10px;
     background-color: #1DB954;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .carousel.carousel-slider .carousel-item h2 {
     font-size: 20px;
     margin: 10px;
+}
+
+.row.slider-center {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.navButtons i {
+    font-size: 30px;
+    color: white;
+    margin: 0 10px;
 }
