@@ -6,6 +6,12 @@
     </div>
     {% for work in works %}
     <div class="carousel-item white-text" href="#one!">
+        {% for composer in composers %}
+        {% if work.composer == composer.composer_name %}
+        <div class="imageContainer">
+            <img src="{{ composer.composer_image }}" class="circle composerImage"></div>
+        {% endif %}
+        {% endfor %}
         <h2>{{ work.composer }}</h2>
         <h2>{{ work.work }}</h2>
         <p class="white-text">{{ work.description }}</p>

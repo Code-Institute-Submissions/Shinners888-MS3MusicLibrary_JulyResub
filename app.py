@@ -30,7 +30,8 @@ def home():
 @app.route("/browse")
 def browse():
     works = mongo.db.works.find()
-    return render_template("browse.html", works=works)
+    composers = mongo.db.composers.find()
+    return render_template("browse.html", works=works, composers=composers)
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -109,6 +110,14 @@ def add_work():
             "user_added": session["user"]
         }
         mongo.db.works.insert_one(work)
+        composer_already_exists = mongo.db.composers.find_one(
+            {"composer": request.form.get("composer")})
+        if composer_already_exists:
+            pass
+        
+        composer = {"composer": request.form.get("composer")}
+        mongo.db.composers.insert_one(composer)
+
         flash("Thank You For Contributing!!")
         return redirect(url_for("browse"))
     genres = mongo.db.genres.find().sort("genre_id", 1)
