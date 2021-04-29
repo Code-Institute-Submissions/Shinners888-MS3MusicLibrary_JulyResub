@@ -46,8 +46,8 @@ def register():
 
         register = {
                 "username": request.form.get("username").lower(),
-                "password": generate_password_hash(request.form.get("password"))
-            }
+                "password": generate_password_hash(request.form.get(
+                    "password"))}
         mongo.db.site_users.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
@@ -102,7 +102,7 @@ def logout():
 def add_work():
     if request.method == "POST":
         work = {
-            "genre": request.form.get("genres.genre_name"),
+            "genre": request.form.get("genre_name"),
             "composer": request.form.get("composer"),
             "work": request.form.get("work"),
             "description": request.form.get("description"),
@@ -111,12 +111,12 @@ def add_work():
         }
         mongo.db.works.insert_one(work)
         composer_already_exists = mongo.db.composers.find_one(
-            {"composer": request.form.get("composer")})
-        if composer_already_exists:
+            {"composer_name": request.form.get("composer")})
+        if not composer_already_exists:
+            composer = {"composer_name": request.form.get("composer")}
+            mongo.db.composers.insert_one(composer)
+        else:
             pass
-        
-        composer = {"composer": request.form.get("composer")}
-        mongo.db.composers.insert_one(composer)
 
         flash("Thank You For Contributing!!")
         return redirect(url_for("browse"))
