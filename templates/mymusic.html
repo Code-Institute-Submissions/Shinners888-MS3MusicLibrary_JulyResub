@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row textInputCard z-depth-5">
-    <h3 class="center">{{ username.capitalize() }}'s Music</h3>
-
+    <h3 class="center">Hi {{ username.capitalize() }}!!</h3>
+    <hr>
+    <h4 class="center">We currently have no upcoming concerts due to restrictions</h4>
+    <hr>
+    <h5 class="center">Remember to check back in after restrictions to see what shows we have coming up.
+        Until then, feel free to <a href="{{ url_for('browse') }}"><u>browse</u></a> or search for music to listen to.
+        And of course, if you think
+        something is missing from our community library, please feel free to contribute!</h5>
 
 </div>
 

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+<div class="row textInputCard z-depth-5">
+    <h3 class="center">Welcome to the Misanthropic Unicorn Home</h3>
+    <h5 class="center">Are you looking for new classical music recommendations? Or a first classical music
+        recommendations?
+        Or do you have any recommendations? We'd love to hear them!<br>
+        So, this is our deal. You <a href="{{ url_for('register') }}"><u>register</u></a>, (or <a
+            href="{{ url_for('login') }}"><u>log in</u></a> if you're already one of us!), enjoy some of our other users
+        favourite pieces, add your own, and when we can finally get back performing, you get massive discounts to our
+        concerts, which we shall announce here!.
+        I mean, it's free to join, and maybe your addition will be so popular, we just HAVE to perform it! Worth a shot
+        at least
+        ;)
+    </h5>
+
+
+    {% endblock %}

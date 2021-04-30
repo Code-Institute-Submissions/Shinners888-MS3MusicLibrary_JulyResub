@@ -32,13 +32,12 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
                             class="material-icons">more_vert</i></a>
                     <ul class="right hide-on-med-and-down">
-
-                        <li><a href="#">Whats On?</a></li>
                         <li><a href="{{ url_for('browse') }}">Browse</a></li>
                         {% if session.user %}
-                        <li><a href="{{ url_for('mymusic', username=session['user']) }}">My Music</a></li>
+                        <li><a href="{{ url_for('mymusic', username=session['user']) }}">Home</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
+                        <li><a href="#">About</a></li>
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                         {% endif %}
@@ -48,12 +47,12 @@
 
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="{{ url_for('home') }}">MUSO</a></li>
-                <li><a href="#">Whats On?</a></li>
                 <li><a href="{{ url_for('browse') }}">Browse</a></li>
                 {% if session.user %}
-                <li><a href="{{ url_for('mymusic', username=session['user']) }}">My Music</a></li>
+                <li><a href="{{ url_for('mymusic', username=session['user']) }}">Home</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
+                <li><a href="#">About</a></li>
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
