@@ -30,32 +30,36 @@ html * {
 }
 
 .footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
     padding: 8px;
 }
 
 .mainBody {
     background-image: url("/static/images/orch2.jpg");
-    height: 100vh;
+    position: relative;
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     bottom: 0;
+
 }
 
+.pageBody {
+    padding-bottom: 80px;
+}
 
 .textInputCard,
-.carousel-item,
 .workInputCard {
     background-color: rgba(214, 82, 240, 0.6);
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 10px;
     border-radius: 20px;
 
 }
-
 
 .textInputCard h3,
 .textInputCard h4,
@@ -81,8 +85,11 @@ form button {
     margin: 5px;
 }
 
+.workInputCard .input-field label {
+    color: white;
+}
 
-.flashMessages h3 {
+.flashMessages h5 {
     background-color: rgba(214, 82, 240, 0.4);
     margin-top: 20px;
     padding: 10px;
