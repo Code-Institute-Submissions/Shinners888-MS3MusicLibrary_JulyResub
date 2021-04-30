@@ -49,7 +49,7 @@ html * {
 }
 
 .pageBody {
-    padding-bottom: 80px;
+    padding-bottom: 100px;
 }
 
 .textInputCard,
@@ -91,7 +91,7 @@ form button {
 
 .searchBar,
 .flashMessages h5 {
-    background-color: rgba(214, 82, 240, 0.4);
+    background-color: rgba(214, 82, 240, 0.6);
     margin-top: 20px;
     padding: 10px;
     border-radius: 20px;

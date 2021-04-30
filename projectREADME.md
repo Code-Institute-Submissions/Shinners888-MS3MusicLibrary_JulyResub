@@ -30,5 +30,11 @@ Browse what others have uploaded and follow the spotify link to listen
 
 
 
+
+
+# Notes
+
+added text search - python3 - mongo app - genre, text and composer text
+
 Resources
 https://stackoverflow.com/questions/46454964/how-can-i-put-the-prev-and-next-arrow-in-materialize-carousel
