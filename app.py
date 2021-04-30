@@ -35,6 +35,14 @@ def browse():
     return render_template("browse.html", works=works, composers=composers, genres=genres)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    genres = mongo.db.genres.find().sort("genre_id", 1)
+    search_by = request.form.get("search_by")
+    works = list(mongo.db.works.find({"$text": {"$search": search_by}}))
+    return render_template("browse.html", works=works, genres=genres)
+
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':

@@ -29,26 +29,26 @@
                 class="white-text">here!</u></a></h4>
 </div>
 <div class="searchBar row">
+    <form action="{{ url_for('search') }}" method="POST">
 
-    <div class="col s6">
-        <div class="input-field">
-            <select>
-                <option value="" disabled selected>Filter Genre</option>
+
+        <div class="input-field col s12 m6">
+
+            <select type="text" name="search_by" id="search_by" class="validate grey-text" required>
+                <option value="" disabled selected>Work Genre</option>
                 {% for genre in genres %}
-                <option value="1">{{ genre.genre_name}}</option>
+                <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
                 {% endfor %}
             </select>
         </div>
-    </div>
-    <div class="col s6">
-        <div class="input-field">
 
-            <div class="input-field">
-                <input id="composer" name="composer" type="text" class="validate">
-                <label for="composer">Search Composers</label>
-            </div>
 
+        <div class="input-field col s12 m6">
+            <input placeholder="Search Composers" id="search_by" name="search_by" type="text" class="validate">
+
+            <button type="submit">Search</button>
         </div>
-    </div>
+    </form>
 </div>
+
 {% endblock %}
