@@ -89,6 +89,7 @@ form button {
     color: white;
 }
 
+.searchBar,
 .flashMessages h5 {
     background-color: rgba(214, 82, 240, 0.4);
     margin-top: 20px;

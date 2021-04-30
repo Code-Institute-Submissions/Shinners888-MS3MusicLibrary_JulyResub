@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="workInputCard">
     <div class="carousel carousel-slider center">
         <div class="carousel-fixed-item center">
@@ -26,5 +27,28 @@
     </div>
     <h4 class="white-text center">Add to our library <a href="{{ url_for('add_work') }}"><u
                 class="white-text">here!</u></a></h4>
+</div>
+<div class="searchBar row">
+
+    <div class="col s6">
+        <div class="input-field">
+            <select>
+                <option value="" disabled selected>Filter Genre</option>
+                {% for genre in genres %}
+                <option value="1">{{ genre.genre_name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="col s6">
+        <div class="input-field">
+
+            <div class="input-field">
+                <input id="composer" name="composer" type="text" class="validate">
+                <label for="composer">Search Composers</label>
+            </div>
+
+        </div>
+    </div>
 </div>
 {% endblock %}

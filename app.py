@@ -31,7 +31,8 @@ def home():
 def browse():
     works = mongo.db.works.find()
     composers = mongo.db.composers.find()
-    return render_template("browse.html", works=works, composers=composers)
+    genres = mongo.db.genres.find().sort("genre_id", 1)
+    return render_template("browse.html", works=works, composers=composers, genres=genres)
 
 
 @app.route("/register", methods=['GET', 'POST'])
