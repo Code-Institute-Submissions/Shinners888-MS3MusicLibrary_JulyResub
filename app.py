@@ -159,6 +159,13 @@ def edit_info(work_id):
     return render_template("edit_info.html", work=work, genres=genres)
 
 
+@app.route("/delete_info/<work_id>")
+def delete_info(work_id):
+    mongo.db.works.remove({"_id": ObjectId(work_id)})
+    flash("Done!!")
+    return redirect(url_for("browse"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
