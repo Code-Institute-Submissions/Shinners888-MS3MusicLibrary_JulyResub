@@ -152,6 +152,7 @@ def edit_info(work_id):
         }
         mongo.db.works.update({"_id": ObjectId(work_id)}, submit)
         flash("History Rewritten!")
+        return redirect(url_for("browse"))
 
     work = mongo.db.works.find_one({"_id": ObjectId(work_id)})
     genres = mongo.db.genres.find().sort("genre_id", 1)

@@ -16,35 +16,41 @@
                 <select id="genre_name" name="genre_name" class="validate grey-text" required>
                     <option value="" disabled selected>Work Genre</option>
                     {% for genre in genres %}
-                    <option value="{{ genre.genre_name }}">{{ genre.genre_name }} : {{ genre.timeline }}</option>
+                    {% if genre.genre_name == work.genre %}
+                    <option value="{{ work.genre }}" selected>{{ genre.genre_name }} : {{ genre.timeline }}</option>
+                    {% else %}
+                    <option value="{{ work.genre }}">{{ genre.genre_name }} : {{ genre.timeline }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
             </div>
             <div class="input-field col s12">
-                <input id="composer" name="composer" type="text" class="validate" required>
+                <input id="composer" name="composer" type="text" class="validate" value="{{ work.composer }}" required>
                 <label for="composer">Composer Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="work" name="work" type="text" class="validate" autocomplete="off" required>
+                <input id="work" name="work" type="text" class="validate" autocomplete="off" value="{{ work.work }}"
+                    required>
                 <label for="work">Name of Work</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="description" name="description" type="text" autocomplete="off" class="validate">
+                <input id="description" name="description" type="text" autocomplete="off" class="validate"
+                    value="{{ work.description }}">
                 <label for="description">A short description of the piece, or your favourite movement!</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="url" name="url" type="text" autocomplete="off" class="validate">
+                <input id="url" name="url" type="text" autocomplete="off" class="validate" value="{{ work.url }}">
                 <label for="url">Have spotify or youtube link to a good recording? Paste that here!</label>
             </div>
         </div>
-        <button type="submit" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">Update
-                Info</i></button>
+        <button type="submit" class="btn-floating btn-large waves-effect waves-light"><i
+                class="fas fa-check-circle"></i></i></button>
     </form>
 </div>
 
