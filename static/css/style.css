@@ -54,7 +54,7 @@ html * {
 
 .textInputCard,
 .workInputCard {
-    background-color: rgba(214, 82, 240, 0.6);
+    background-color: rgba(214, 82, 240, 0.8);
     margin: 20px 0;
     padding: 10px;
     border-radius: 20px;
@@ -91,7 +91,7 @@ form button {
 
 .searchBar,
 .flashMessages h5 {
-    background-color: rgba(214, 82, 240, 0.6);
+    background-color: rgba(214, 82, 240, 0.8);
     margin-top: 20px;
     padding: 10px;
     border-radius: 20px;
@@ -109,7 +109,7 @@ form button {
     border-radius: 30px;
     border: 1px solid black;
     padding: 3px 10px;
-    background-color: #1DB954;
+    background: linear-gradient(60deg, #FF0000 20%, #1DB954 25%);
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
@@ -134,4 +134,5 @@ form button {
 .imageContainer img {
     max-height: 12.5%;
     max-width: 12.5%;
+    margin: 20px;
 }

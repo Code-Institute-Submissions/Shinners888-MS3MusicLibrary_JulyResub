@@ -4,21 +4,26 @@
     <div class="carousel carousel-slider center">
         <div class="carousel-fixed-item center">
         </div>
+        {% for composer in composers %}
         {% for work in works %}
         <div class="carousel-item white-text" href="#one!">
-            {% for composer in composers %}
+            <h2>{{ work.composer }}</h2>
+            <h2>{{ work.work }}</h2>
+            <p class="white-text">{{ work.description }}</p>
+            <a class="spotifyButton" href="{{ work.url }}" target="_blank"><i class="fab fa-youtube"></i> Listen Here <i
+                    class="fab fa-spotify"></i></a>
             {% if work.composer == composer.composer_name %}
             <div class="imageContainer">
                 <img src="{{ composer.composer_image }}" class="circle composerImage">
             </div>
             {% endif %}
-            {% endfor %}
-            <h2>{{ work.composer }}</h2>
-            <h2>{{ work.work }}</h2>
-            <p class="white-text">{{ work.description }}</p>
-            <a class="spotifyButton" href="{{ work.url }}" target="_blank">Listen Here <i
-                    class="fab fa-spotify"></i></a>
+            {% if username == work.user_added or username == "admin" %}
+            <a href="{{ url_for('edit_info', work_id=work._id) }}" class="deep-purple accent-1 white-text btn">Edit</a>
+            <a href="#" class="deep-purple accent-1 white-text btn">Remove</a>
+            {% else %}
+            {% endif %}
         </div>
+        {% endfor %}
         {% endfor %}
         <div class="row slider-center navButtons">
             <i class="fas fa-backward left" id="backButton"></i>
@@ -28,22 +33,23 @@
     <h4 class="white-text center">Add to our library <a href="{{ url_for('add_work') }}"><u
                 class="white-text">here!</u></a></h4>
 </div>
-<div class="searchBar">
+<div class="searchBar container">
     <form action="{{ url_for('search') }}" method="POST">
         <div class="row">
-            <div class="input-field col s10 m8">
+            <div class="input-field col s12 m8">
                 <div class="center">
                     <input placeholder="Search Composers or Genres" id="search_by" name="search_by" type="text"
                         class="validate" required>
                 </div>
             </div>
-            <div class="col s2 right"><button type="submit" class="btn-large text-shadow waves-light">Search</button>
+            <div class="col s8 m4 right"><button type="submit"
+                    class="btn-large deep-purple accent-1 text-shadow waves-light center">Search</button>
             </div>
         </div>
     </form>
     <div class="row">
-        <div class="col s4 left">
-            <a href="{{ url_for('browse') }}" class="btn-large text-shadow">
+        <div class="col s8 m4 right">
+            <a href="{{ url_for('browse') }}" class="btn-large deep-purple accent-1 text-shadow">
                 Back to All
             </a>
         </div>

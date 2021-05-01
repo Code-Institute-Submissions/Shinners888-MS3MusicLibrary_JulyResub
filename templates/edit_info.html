@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col s6">
+        <a href="{{ url_for('browse') }}">
+            <h4 class="white-text">Back<i class="fas fa-arrow-left white-text left"></i></h4>
+        </a></div>
+    <div class="col s6">
+        <h4 class="white-text right">Edit Your Piece</h4>
+    </div>
+</div>
+<div class="row">
+    <form class="col s12 workInputCard" method="POST" action="{{ url_for('edit_info', work_id=work._id) }}">
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="genre_name" name="genre_name" class="validate grey-text" required>
+                    <option value="" disabled selected>Work Genre</option>
+                    {% for genre in genres %}
+                    <option value="{{ genre.genre_name }}">{{ genre.genre_name }} : {{ genre.timeline }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-field col s12">
+                <input id="composer" name="composer" type="text" class="validate" required>
+                <label for="composer">Composer Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="work" name="work" type="text" class="validate" autocomplete="off" required>
+                <label for="work">Name of Work</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="description" name="description" type="text" autocomplete="off" class="validate">
+                <label for="description">A short description of the piece, or your favourite movement!</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="url" name="url" type="text" autocomplete="off" class="validate">
+                <label for="url">Have spotify or youtube link to a good recording? Paste that here!</label>
+            </div>
+        </div>
+        <button type="submit" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">Update
+                Info</i></button>
+    </form>
+</div>
+
+{% endblock %}

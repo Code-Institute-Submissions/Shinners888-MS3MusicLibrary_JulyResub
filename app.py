@@ -32,7 +32,12 @@ def browse():
     works = mongo.db.works.find()
     composers = mongo.db.composers.find()
     genres = mongo.db.genres.find().sort("genre_id", 1)
-    return render_template("browse.html", works=works, composers=composers, genres=genres)
+    username = mongo.db.site_users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template(
+        "browse.html", works=works, 
+        composers=composers, genres=genres, 
+        username=username)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -131,6 +136,26 @@ def add_work():
         return redirect(url_for("browse"))
     genres = mongo.db.genres.find().sort("genre_id", 1)
     return render_template("add_work.html", genres=genres)
+
+
+@app.route("/edit_info/<work_id>", methods=["GET", "POST"])
+def edit_info(work_id):
+    if request.method == "POST":
+        
+        submit = {
+            "genre": request.form.get("genre_name"),
+            "composer": request.form.get("composer"),
+            "work": request.form.get("work"),
+            "description": request.form.get("description"),
+            "url": request.form.get("url"),
+            "user_added": session["user"]
+        }
+        mongo.db.works.update({"_id": ObjectId(work_id)}, submit)
+        flash("History Rewritten!")
+
+    work = mongo.db.works.find_one({"_id": ObjectId(work_id)})
+    genres = mongo.db.genres.find().sort("genre_id", 1)
+    return render_template("edit_info.html", work=work, genres=genres)
 
 
 if __name__ == "__main__":
