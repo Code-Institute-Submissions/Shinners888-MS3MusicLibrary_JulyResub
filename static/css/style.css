@@ -136,6 +136,7 @@ html * {
     color: black;
 }
 
+
 .regularButton {
     border-radius: 30px;
     border: 1px solid black;
@@ -181,4 +182,13 @@ html * {
 
 .editDeleteButtons {
     margin: 20px;
+}
+
+.dropdown-content {
+    background-color: whitesmoke;
+    border-radius: 20px;
+}
+
+.dropdown-content li a {
+    color: black;
 }

@@ -18,4 +18,6 @@ $('#nextButton').click(function () {
     $('.carousel').carousel('next');
 });
 
-$('.dropdown-trigger').dropdown();
+$(".dropdown-trigger").dropdown({
+    coverTrigger: false
+});
