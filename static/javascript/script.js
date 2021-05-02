@@ -13,3 +13,6 @@ $('#backButton').click(function () {
 $('#nextButton').click(function () {
     $('.carousel').carousel('next');
 });
+$(document).ready(function () {
+    $('.modal').modal();
+});

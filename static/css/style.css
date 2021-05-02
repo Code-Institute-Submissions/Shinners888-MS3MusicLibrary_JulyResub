@@ -67,6 +67,16 @@ html * {
 
 }
 
+.modal,
+.modal-footer {
+    background-color: rgba(10, 9, 10, 0.8);
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 20px;
+    line-height: 35px;
+    font-weight: 600;
+}
+
 .textInputCard h3,
 .textInputCard h4,
 .textInputCard h5,
