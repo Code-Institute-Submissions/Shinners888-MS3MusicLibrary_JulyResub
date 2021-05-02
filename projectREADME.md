@@ -34,8 +34,21 @@ Browse what others have uploaded and follow the spotify link to listen
 
 # Notes
 
-added text search - python3 - mongo app - genre, text and composer text
+added text search - python3 - mongo app - genre_text_composer_text
 
 Resources
 https://stackoverflow.com/questions/46454964/how-can-i-put-the-prev-and-next-arrow-in-materialize-carousel
 https://www.clipartkey.com/view/bhiwTb_illustration/
+
+User issues noted: 
+
+difficult to read with color scheme (fix: monochromatic outside of buttons and nav/footer)
+
+edit/delete buttons don't work on mobile if in same latitude as scroll buttons (fix: scroll buttons now just decorative)
+
+
+Browse unavailable to non users - causes error
+
+About page doesn't exist
+
+

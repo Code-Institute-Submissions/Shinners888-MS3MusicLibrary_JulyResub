@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="textInputCard homePage">
-    <h2 class="light-green-text accent-3 center-align">Misanthropic Unicorns Symphony Orchestra</h2>
+    <h2 class="center-align">Misanthropic Unicorns Symphony Orchestra</h2>
     <hr>
-    <h3 class="light-green-text accent-3 center-align">Bringing Classic Back</h3>
-
+    <h3 class="center-align">Bringing Classic Back</h3>
+    {% if not session.user %}
+    <hr>
+    <h5 class="center">Are you looking for new classical music recommendations?<br>
+        Or do you have any recommendations?<br> We'd love to hear them!<br>
+        So, this is our deal. You <a href="{{ url_for('register') }}"><u>register</u></a>, (or <a
+            href="{{ url_for('login') }}"><u>log in</u></a> if you're already one of us!), enjoy some of our other
+        users'
+        favourite pieces, add your own, and when we can finally get back performing, you get massive discounts to our
+        concerts, which we shall announce here!.<br>
+        I mean, it's free to join, and maybe your addition will be so popular, we just HAVE to perform it! Worth a shot
+        at least
+        ;)
+    </h5>
+    {% endif %}
     {% endblock %}
