@@ -1,16 +1,16 @@
 /*
-font-family: 'Playfair Display', serif;
-font-family: 'Montserrat', sans-serif;
+font-family: 'Playfair Display', serif; Website Font
+font-family: 'Montserrat', sans-serif; Spotify Font
 */
+
+/* Layout */
 html * {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: whitesmoke;
 }
 
-.card {
-    border-radius: 20px;
-}
+
 
 .mainBody {
     background-image: url("/static/images/orch2.jpg");
@@ -28,35 +28,33 @@ html * {
 
 .navBar,
 .footer {
-    color: black;
     background: linear-gradient(to right, #D652F0, #52C0F0, #5DF052, #52C0F0, #D652F0);
     height: 80px;
-}
-
-.navBar ul li,
-.navBar ul li a,
-.footer {
-    font-size: 20px;
-}
-
-.navBar {
     position: fixed;
-    top: 0;
     left: 0;
-    padding: 10px;
-    font-size: 30px;
     z-index: 10;
 }
 
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 8px;
+.navBar {
+    top: 0;
+    padding: 10px;
+    font-size: 30px;
 }
 
+.footer {
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+}
 
+.navBar a,
+.navBar ul li,
+.navBar ul li a,
+.footer p {
+    color: black;
+}
+
+/* Cards modals and forms */
 
 .textInputCard,
 .workInputCard {
@@ -64,11 +62,9 @@ html * {
     margin: 20px 0;
     padding: 10px;
     border-radius: 20px;
-
 }
 
-.modal,
-.modal-footer {
+.modal {
     background-color: rgba(10, 9, 10, 0.8);
     margin: 20px 0;
     padding: 10px;
@@ -86,16 +82,11 @@ html * {
     font-weight: 600;
 }
 
-form button {
-    box-shadow: black;
-    margin: 15px;
-}
 
 .textInputCard label,
 .textInputCard .input-field,
 .textInputCard i,
 .workInputCard .input-field {
-
     font-size: 30px;
     font-weight: 600;
     margin: 5px;
@@ -108,22 +99,35 @@ form button {
     margin-top: 20px;
     padding: 10px;
     border-radius: 20px;
-
     text-align: center;
     font-weight: 600;
 }
 
 .carousel {
     margin-top: 20px;
-
 }
+
+.carousel.carousel-slider .carousel-item h2 {
+    font-size: 20px;
+    margin: 10px;
+}
+
+.row.slider-center {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+
+/* Buttons */
+
 
 .spotifyButton {
     border-radius: 30px;
     border: 1px solid black;
     color: black;
     padding: 3px 10px;
-    background: linear-gradient(60deg, #FF0000 20%, #1DB954 25%);
+    background-color: #1DB954;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
@@ -141,6 +145,16 @@ form button {
 
 }
 
+.addButton {
+    border-radius: 30px;
+    border: 1px solid black;
+    color: black;
+    background-color: #52C0F0;
+    box-shadow: black;
+    margin: 15px;
+}
+
+.addButton:hover,
 .regularButton:hover {
     background: #D652F0;
 }
@@ -149,20 +163,14 @@ form button {
     background: whitesmoke
 }
 
-.carousel.carousel-slider .carousel-item h2 {
-    font-size: 20px;
-    margin: 10px;
-}
-
-.row.slider-center {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-}
 
 .navButtons i {
     font-size: 30px;
     margin: 0 10px;
+}
+
+.navButtons i:hover {
+    color: #D652F0;
 }
 
 .imageContainer img {

@@ -1,11 +1,15 @@
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('select').formSelect();
+    $('.modal').modal();
 });
+//carousel
 $('.carousel.carousel-slider').carousel({
     fullWidth: true,
     indicators: false,
 });
+
+//nav-buttons carousel
 $('#backButton').click(function () {
     $('.carousel').carousel('prev');
 });
@@ -13,7 +17,5 @@ $('#backButton').click(function () {
 $('#nextButton').click(function () {
     $('.carousel').carousel('next');
 });
-$(document).ready(function () {
-    $('.modal').modal();
-});
+
 $('.dropdown-trigger').dropdown();
