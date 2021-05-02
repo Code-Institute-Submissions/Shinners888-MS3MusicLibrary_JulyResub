@@ -16,3 +16,4 @@ $('#nextButton').click(function () {
 $(document).ready(function () {
     $('.modal').modal();
 });
+$('.dropdown-trigger').dropdown();

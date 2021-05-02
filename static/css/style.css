@@ -145,6 +145,10 @@ form button {
     background: #D652F0;
 }
 
+.regularButton:focus {
+    background: whitesmoke
+}
+
 .carousel.carousel-slider .carousel-item h2 {
     font-size: 20px;
     margin: 10px;

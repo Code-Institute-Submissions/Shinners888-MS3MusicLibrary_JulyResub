@@ -36,7 +36,7 @@
                         {% if session.user %}
                         <li><a href="{{ url_for('mymusic', username=session['user']) }}">Home</a></li>
                         <li><a href="{{ url_for('browse') }}">Browse</a></li>
-                        <li><a class="btn modal-trigger" href="#modal1">Log Out</a></li>
+                        <li><a class="modal-trigger" href="#modal1">Log Out</a></li>
                         {% else %}
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
