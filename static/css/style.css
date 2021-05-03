@@ -119,7 +119,7 @@ html * {
 }
 
 
-/* Buttons */
+/* Buttons and images */
 
 
 .spotifyButton {
@@ -175,10 +175,19 @@ html * {
 }
 
 .imageContainer img {
-    max-height: 12.5%;
-    max-width: 12.5%;
+    max-height: 30%;
+    max-width: 30%;
     margin: 20px;
 }
+
+@media only screen and (min-width: 576px) {
+    .imageContainer img {
+        max-height: 15%;
+        max-width: 15%;
+        margin: 20px;
+    }
+}
+
 
 .editDeleteButtons {
     margin: 20px;
