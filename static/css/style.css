@@ -194,10 +194,10 @@ html * {
 }
 
 .dropdown-content {
-    background-color: whitesmoke;
+    background-color: black;
     border-radius: 20px;
 }
 
-.dropdown-content li a {
-    color: black;
+.dropdownText {
+    color: whitesmoke;
 }

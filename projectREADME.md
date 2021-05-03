@@ -45,6 +45,12 @@ It is a basic layout, easy to follow. The 'create' and 'update' pages are not av
 
  As well as editing or deleting works, an admin can edit composer information. If a new composer has been entered into the database, they will not yet have a related photo. The admin can upload a photo in the composers page. They can then click edit and save on any works by that composer to have the image displayed.
 
+### Aesthetic
+
+In honour of the unsociable unicorns after which the site is named, the navbar, buttons and footer are made up of bright, almost psychadelic ,colours traditionally associated with unicorns, around a dark monochrome website.
+
+
+
 # CRUD
 
  - Create
@@ -199,7 +205,9 @@ A comments section to discuss the pieces.
 # Credits
 
 Orchestra Image: [Arindam Mahanta on Unsplash](https://unsplash.com/photos/VEOk8qUl9DU)
+
 Cello Image: [Dominic Scythe on Unsplash](https://unsplash.com/photos/lDKmtwvrZZs)
+
 Unicorn Favicon: [Clipart Key](https://www.clipartkey.com/view/bhiwTb_illustration/)
 
 # Acknowledgments

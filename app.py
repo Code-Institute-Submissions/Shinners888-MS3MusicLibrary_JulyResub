@@ -205,6 +205,13 @@ def delete_info(work_id):
     return redirect(url_for("browse"))
 
 
+@app.route("/delete_composer/<composer_id>")
+def delete_composer(composer_id):
+    mongo.db.composers.remove({"_id": ObjectId(composer_id)})
+    flash("Done!!")
+    return redirect(url_for("composers"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
