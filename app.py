@@ -115,6 +115,7 @@ def logout():
 @app.route("/add_work", methods=['GET', 'POST'])
 def add_work():
     if request.method == "POST":
+        # Check if composer exists, and if so, get id and image
         composer_already_exists = mongo.db.composers.find_one(
             {"composer_name": request.form.get("composer")})
         if not composer_already_exists:
@@ -122,6 +123,7 @@ def add_work():
             mongo.db.composers.insert_one(composer)
         else:
             pass
+        # push composer image as object into work
         this_composer_image = mongo.db.composers.find_one(
             {"composer_name": request.form.get(
                 "composer")}, {"composer_image": 1})
@@ -145,14 +147,26 @@ def add_work():
 @app.route("/edit_info/<work_id>", methods=["GET", "POST"])
 def edit_info(work_id):
     if request.method == "POST":
-        
+         # Check if composer exists, and if so, get id and image
+        composer_already_exists = mongo.db.composers.find_one(
+            {"composer_name": request.form.get("composer")})
+        if not composer_already_exists:
+            composer = {"composer_name": request.form.get("composer")}
+            mongo.db.composers.insert_one(composer)
+        else:
+            pass
+        # push composer image as object into work
+        this_composer_image = mongo.db.composers.find_one(
+            {"composer_name": request.form.get(
+                "composer")}, {"composer_image": 1})
         submit = {
             "genre": request.form.get("genre_name"),
             "composer": request.form.get("composer"),
             "work": request.form.get("work"),
             "description": request.form.get("description"),
             "url": request.form.get("url"),
-            "user_added": session["user"]
+            "user_added": session["user"],
+            "image": this_composer_image
         }
         mongo.db.works.update({"_id": ObjectId(work_id)}, submit)
         flash("History Rewritten!")
