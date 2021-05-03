@@ -27,7 +27,15 @@
             </div>
             {% else %}
             {% endif %}
-
+            {% if work.image %}
+            <div class="imageContainer">
+                <img src="{{ work.image.composer_image }}" class="circle composerImage">
+            </div>
+            {% else %}
+            <div class="imageContainer">
+                <img src="static/images/cello.jpg" class="circle composerImage">
+            </div>
+            {% endif %}
         </div>
 
         {% endfor %}
