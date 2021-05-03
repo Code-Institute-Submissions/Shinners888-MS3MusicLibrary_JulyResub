@@ -2,12 +2,13 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
     $('select').formSelect();
     $('.modal').modal();
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: false,
+    });
 });
 //carousel
-$('.carousel.carousel-slider').carousel({
-    fullWidth: true,
-    indicators: false,
-});
+
 
 //nav-buttons carousel
 $('#backButton').click(function () {

@@ -10,6 +10,15 @@
             <h2>{{ work.composer }}</h2>
             <h2>{{ work.work }}</h2>
             <p class="white-text">{{ work.description }}</p>
+            {% if work.image %}
+            <div class="imageContainer">
+                <img src="{{ work.image.composer_image }}" class="circle composerImage">
+            </div>
+            {% else %}
+            <div class="imageContainer">
+                <img src="static/images/cello.jpg" class="circle composerImage">
+            </div>
+            {% endif %}
             <a class="spotifyButton" href="{{ work.url }}" target="_blank">Listen Here <i
                     class="fab fa-spotify"></i></a>
             <div class="hide-on-med-and-up valign-center navButtons">
@@ -27,15 +36,7 @@
             </div>
             {% else %}
             {% endif %}
-            {% if work.image %}
-            <div class="imageContainer">
-                <img src="{{ work.image.composer_image }}" class="circle composerImage">
-            </div>
-            {% else %}
-            <div class="imageContainer">
-                <img src="static/images/cello.jpg" class="circle composerImage">
-            </div>
-            {% endif %}
+
         </div>
 
         {% endfor %}
