@@ -159,6 +159,27 @@ def edit_info(work_id):
     return render_template("edit_info.html", work=work, genres=genres)
 
 
+@app.route("/composers")
+def composers():
+    composers = list(mongo.db.composers.find().sort("composer_name", 1))
+    return render_template("composers.html", composers=composers)
+
+
+@app.route("/edit_composer/<composer_id>", methods=["GET", "POST"])
+def edit_composer(composer_id):
+    if request.method == "POST":
+        submit = {
+            "composer_name": request.form.get("composer_name"),
+            "composer_image": request.form.get("composer_image")
+        }
+        mongo.db.composers.update({"_id": ObjectId(composer_id)}, submit)
+        flash("Category Successfully Updated")
+        return redirect(url_for("composers"))
+
+    composer = mongo.db.composers.find_one({"_id": ObjectId(composer_id)})
+    return render_template("edit_composer.html", composer=composer)
+
+
 @app.route("/delete_info/<work_id>")
 def delete_info(work_id):
     mongo.db.works.remove({"_id": ObjectId(work_id)})

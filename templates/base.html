@@ -34,6 +34,9 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
                             class="material-icons">more_vert</i></a>
                     <ul class="right hide-on-med-and-down">
+                        {% if session.user|lower == "admin"|lower %}
+                        <li><a href="{{ url_for('composers') }}">Composers</a></li>
+                        {% endif %}
                         {% if session.user %}
                         <li><a href="{{ url_for('mymusic', username=session['user']) }}">Home</a></li>
                         <li><a href="{{ url_for('browse') }}">Browse</a></li>
@@ -48,6 +51,9 @@
 
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="{{ url_for('home') }}">MUSO</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                <li><a href="{{ url_for('composers') }}">Composers</a></li>
+                {% endif %}
                 {% if session.user %}
                 <li><a href="{{ url_for('mymusic', username=session['user']) }}">Home</a></li>
                 <li><a href="{{ url_for('browse') }}">Browse</a></li>
