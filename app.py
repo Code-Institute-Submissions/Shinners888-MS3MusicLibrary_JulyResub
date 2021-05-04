@@ -201,7 +201,7 @@ def edit_composer(composer_id):
             "composer_image": request.form.get("composer_image")
         }
         mongo.db.composers.update({"_id": ObjectId(composer_id)}, submit)
-        flash("Category Successfully Updated")
+        flash("Composer Edit Complete")
         return redirect(url_for("composers"))
 
     composer = mongo.db.composers.find_one({"_id": ObjectId(composer_id)})

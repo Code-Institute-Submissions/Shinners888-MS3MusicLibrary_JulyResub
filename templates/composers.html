@@ -5,8 +5,9 @@
 
 <div class="row">
     <h4>Composers</h4>
-    {% for composer in composers %}
+
     <div class="card workInputCard">
+        {% for composer in composers %}
         <div class="card-content white-text">
             <span class="card-title">{{ composer.composer_name}}</span>
 
@@ -23,8 +24,9 @@
             </ul>
 
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
 
 
 </div>
