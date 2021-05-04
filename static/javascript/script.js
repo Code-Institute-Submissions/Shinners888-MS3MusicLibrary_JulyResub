@@ -6,19 +6,15 @@ $(document).ready(function () {
         fullWidth: true,
         indicators: false,
     });
-});
-//carousel
+    $('#backButton').click(function () {
+        $('.carousel').carousel('prev');
+    });
 
+    $('#nextButton').click(function () {
+        $('.carousel').carousel('next');
+    });
 
-//nav-buttons carousel
-$('#backButton').click(function () {
-    $('.carousel').carousel('prev');
-});
-
-$('#nextButton').click(function () {
-    $('.carousel').carousel('next');
-});
-
-$(".dropdown-trigger").dropdown({
-    coverTrigger: false
+    $(".dropdown-trigger").dropdown({
+        coverTrigger: false
+    });
 });

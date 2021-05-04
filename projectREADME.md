@@ -123,6 +123,23 @@ Please note this was an early sketch of the relationships between the various ty
 
 # Creation and testing
 
+### Database Creation
+
+In MongoDB I created a music library database with four collections: composers, genres, site_users and works. Works is the main collection and gathers data in some shape or form from each other collection. 
+
+- Genres
+Each genre has it's own info. And to sort them chronologically in the site, each has an Int ID depending on when that period of classical music occurs. This provides a reference of a time period when a user is uploading a new piece, for those who may not be sure of the classical music eras.
+
+- Site_users
+This simply contains a username and password. The user that creates each work will be stored in the work collection so they can edit or delete what they have uploaded if they wish. The passwords are encrypted using the werkzeug password hash
+
+- Composers
+Another simple collection. This contains just composer names and their corresponding images. When a user adds a new work, this collection is scanned to see if the user already exists. If it does, no new composer is created. If it exists and has a corresponding image, the ObjectId and composer image url will be imported into the created works object as a nested object. This will allow the composer image to display under any of their works.
+
+- Works
+The main collection of this project. The objects in this collection contain at a minimum, the composer name, the name of the work, the genre and the username of the object creator. There should also be a short description and a url to redirect the user to listen to the piece/s. The $text Index search function acts on this collection, querying the composer and genre fields.
+
+
 ### Creation 
 1. Initial Commits: Imported flask, flask_pymongo, dnspython, and os, linked to Heroku and MongoDB, tested that an HTML page would display print from app.py. Created a base HTML page.
 
@@ -138,7 +155,7 @@ Please note this was an early sketch of the relationships between the various ty
 
 7. Altered JS for the carousel as clicking any buttons on it were overridden by the carousels inbuilt turn function.
 
-8. Added index text search via python3 - mongo app. Will search the works collection for a composer name or genre.
+8. Created index text search via python3 - from app import mongo. Will search the works collection for a composer name or genre.
 
 9. Added and wired up edit and delete functions, only available to the user that added that work_id, or to the admin.
 
@@ -146,7 +163,55 @@ Please note this was an early sketch of the relationships between the various ty
 
 11. Added functionality within add and edit work functions, to read the composer name, find the composers unique ID, get the composer image from said ID if it already exists, and populate an image object with the _id and composer image fields.
 
-12. Tidied code and commented.
+12. Added method to delete composer. It is possible that duplicates would happen due to spelling errors. The admin can update incorrect spelling in the work and remove the incorrect/duplicate composers.
+
+13. Tidied code and commented.
+
+14. Set debug to False
+
+# Deployment
+
+- Create env.py file with the following fields:
+
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "")
+os.environ.setdefault("MONGO_URI", "")
+os.environ.setdefault("MONGO_DBNAME", "CLUSTER NAME HERE")
+
+- push env.py to gitignore with __pycache_/
+
+- Type "pip3 freeze --local > requirements.txt" in the terminal (so Heroku will know what is required to run the app)
+
+- Use pip3 to install flask, flask_pymongo and dnspython
+
+- The app can now be run locally by typing python3 app.py in the terminal
+
+Heroku Deployment
+
+Deployment was executed early on, with commits and pushes updateing the app.This ensured there was nothing missing early on that would cause issues later.
+
+- Following creation of requirements.txt above, create a Procfile by typing "echo web: python app.py > Procfile" in the terminal
+
+In Heroku:
+- Create new app
+
+- Choose an app name and your country and click create app
+
+- Go to the deploy tab and choose "Connect to Github"
+
+- Connect to project repository
+
+- Go to settings > reveal config vars.
+
+Copy in the key, value pairs to match those in env.py
+
+- If requirements.txt and Procfile are committed, go to the deploy tab in Heroku and Enable Automatic Deployment
+
+Deploy Branch. This will take a few minutes. Anything you push from Github now will automatically update in the Heroku App
+
 
 ### Testing
 
@@ -193,7 +258,7 @@ Browse unavailable to non users which causes an error
 
 Carousel keeps randomly collapsing, particularly on mobile.
 
-- The only suggestion I found for this was to make sure the carousel JQuery commands were in the document ready function, which they previously weren't.
+- The only suggestion I found for this was to make sure the carousel JQuery commands were in the document ready function, which they previously weren't. Moved Add work h4 tag below carousel. The issue is intermittent and I can't pinpoint what is causing it.
 
 # Possible Future Features
 

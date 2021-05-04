@@ -27,6 +27,7 @@ def home():
     return render_template("home.html", works=works)
 
 
+# Gather all necessary collections to display works to users
 @app.route("/browse")
 def browse():
     works = mongo.db.works.find()
@@ -40,6 +41,7 @@ def browse():
         username=username)
 
 
+# Search works by genre or composer. 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     genres = mongo.db.genres.find().sort("genre_id", 1)
@@ -48,6 +50,7 @@ def search():
     return render_template("browse.html", works=works, genres=genres)
 
 
+# Create a new user
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -70,6 +73,7 @@ def register():
     return render_template("register.html")
 
 
+# Check username and password exist and are correct
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -94,6 +98,7 @@ def login():
     return render_template("login.html")
 
 
+# Greets newly logged in user on their homepage
 @app.route("/mymusic/<username>", methods=['GET', 'POST'])
 def mymusic(username):
     username = mongo.db.site_users.find_one(
@@ -105,6 +110,7 @@ def mymusic(username):
     return redirect(url_for("login"))
 
 
+# Logout
 @app.route("/logout")
 def logout():
     flash("You have been logged out")
@@ -112,6 +118,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Function that runs when a user submits a new works object
 @app.route("/add_work", methods=['GET', 'POST'])
 def add_work():
     if request.method == "POST":
@@ -123,11 +130,11 @@ def add_work():
             mongo.db.composers.insert_one(composer)
         else:
             pass
-        # push composer image as object into work
+# push composer image as object into work
         this_composer_image = mongo.db.composers.find_one(
             {"composer_name": request.form.get(
                 "composer")}, {"composer_image": 1})
-        
+# Push all new data from add_work to a new object and redirect user to browse page
         work = {
             "genre": request.form.get("genre_name"),
             "composer": request.form.get("composer"),
@@ -147,7 +154,7 @@ def add_work():
 @app.route("/edit_info/<work_id>", methods=["GET", "POST"])
 def edit_info(work_id):
     if request.method == "POST":
-         # Check if composer exists, and if so, get id and image
+        # Check if composer exists, and if so, get id and image
         composer_already_exists = mongo.db.composers.find_one(
             {"composer_name": request.form.get("composer")})
         if not composer_already_exists:
@@ -155,10 +162,11 @@ def edit_info(work_id):
             mongo.db.composers.insert_one(composer)
         else:
             pass
-        # push composer image as object into work
+# push composer image as object into work
         this_composer_image = mongo.db.composers.find_one(
             {"composer_name": request.form.get(
                 "composer")}, {"composer_image": 1})
+# Edit existing work info and redirect user to browse page.
         submit = {
             "genre": request.form.get("genre_name"),
             "composer": request.form.get("composer"),
@@ -177,12 +185,14 @@ def edit_info(work_id):
     return render_template("edit_info.html", work=work, genres=genres)
 
 
+# Get all composer objects
 @app.route("/composers")
 def composers():
     composers = list(mongo.db.composers.find().sort("composer_name", 1))
     return render_template("composers.html", composers=composers)
 
 
+# Edit any composer object
 @app.route("/edit_composer/<composer_id>", methods=["GET", "POST"])
 def edit_composer(composer_id):
     if request.method == "POST":
@@ -198,6 +208,7 @@ def edit_composer(composer_id):
     return render_template("edit_composer.html", composer=composer)
 
 
+# Delete any work object
 @app.route("/delete_info/<work_id>")
 def delete_info(work_id):
     mongo.db.works.remove({"_id": ObjectId(work_id)})
@@ -205,6 +216,7 @@ def delete_info(work_id):
     return redirect(url_for("browse"))
 
 
+# Delete any composer object
 @app.route("/delete_composer/<composer_id>")
 def delete_composer(composer_id):
     mongo.db.composers.remove({"_id": ObjectId(composer_id)})
