@@ -47,7 +47,11 @@ def search():
     genres = mongo.db.genres.find().sort("genre_id", 1)
     search_by = request.form.get("search_by")
     works = list(mongo.db.works.find({"$text": {"$search": search_by}}))
-    return render_template("browse.html", works=works, genres=genres)
+    username = mongo.db.site_users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template(
+        "browse.html", works=works,
+        genres=genres, username=username)
 
 
 # Create a new user
@@ -149,7 +153,7 @@ def add_work():
             submit = {
                 "image": this_composer_image
             }
-            mongo.db.works.update({"_id": ObjectId(work_id)}, submit)
+            mongo.db.works.update({"_id": ObjectId(work)}, submit)
         flash("Thank You For Contributing!!")
         return redirect(url_for("browse"))
     genres = mongo.db.genres.find().sort("genre_id", 1)
