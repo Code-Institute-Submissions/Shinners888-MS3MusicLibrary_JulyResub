@@ -142,10 +142,14 @@ def add_work():
             "work": request.form.get("work"),
             "description": request.form.get("description"),
             "url": request.form.get("url"),
-            "user_added": session["user"],
-            "image": this_composer_image
+            "user_added": session["user"]
         }
         mongo.db.works.insert_one(work)
+        if composer_already_exists:
+            submit = {
+                "image": this_composer_image
+            }
+            mongo.db.works.update({"_id": ObjectId(work_id)}, submit)
         flash("Thank You For Contributing!!")
         return redirect(url_for("browse"))
     genres = mongo.db.genres.find().sort("genre_id", 1)
