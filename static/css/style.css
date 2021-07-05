@@ -15,6 +15,7 @@ html * {
 .mainBody {
     background-image: url("/static/images/orch2.jpg");
     min-height: 100vh;
+    padding-bottom: 80px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +24,7 @@ html * {
 }
 
 .pageBody {
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 .navBar,
@@ -94,6 +95,7 @@ html * {
 
 
 .searchBar,
+.headerBar,
 .flashMessages h5 {
     background-color: rgba(10, 9, 10, 0.8);
     margin-top: 20px;
@@ -103,8 +105,13 @@ html * {
     font-weight: 600;
 }
 
+.searchBar {
+    margin-bottom: 50px;
+}
+
 .carousel {
     margin-top: 20px;
+    min-height: 70vh;
 }
 
 .carousel.carousel-slider .carousel-item h2 {

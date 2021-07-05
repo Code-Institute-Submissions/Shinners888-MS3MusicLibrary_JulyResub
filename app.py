@@ -36,12 +36,12 @@ def browse():
     username = mongo.db.site_users.find_one(
         {"username": session["user"]})["username"]
     return render_template(
-        "browse.html", works=works, 
-        composers=composers, genres=genres, 
+        "browse.html", works=works,
+        composers=composers, genres=genres,
         username=username)
 
 
-# Search works by genre or composer. 
+# Search works by genre or composer.
 @app.route("/search", methods=["GET", "POST"])
 def search():
     genres = mongo.db.genres.find().sort("genre_id", 1)
@@ -81,12 +81,12 @@ def login():
             {"username": request.form.get("username").lower()})
 
         if user_already_exists:
-            if check_password_hash(
-                user_already_exists["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
-                        "mymusic", username=session["user"]))
+            if check_password_hash(user_already_exists["password"],
+                                   request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
+                    "mymusic", username=session["user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -134,7 +134,8 @@ def add_work():
         this_composer_image = mongo.db.composers.find_one(
             {"composer_name": request.form.get(
                 "composer")}, {"composer_image": 1})
-# Push all new data from add_work to a new object and redirect user to browse page
+# Push all new data from add_work to a new object
+# and redirect user to browse page
         work = {
             "genre": request.form.get("genre_name"),
             "composer": request.form.get("composer"),
@@ -227,4 +228,4 @@ def delete_composer(composer_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
