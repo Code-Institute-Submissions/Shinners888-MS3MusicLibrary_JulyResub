@@ -140,20 +140,26 @@ def add_work():
                 "composer")}, {"composer_image": 1})
 # Push all new data from add_work to a new object
 # and redirect user to browse page
-        work = {
-            "genre": request.form.get("genre_name"),
-            "composer": request.form.get("composer"),
-            "work": request.form.get("work"),
-            "description": request.form.get("description"),
-            "url": request.form.get("url"),
-            "user_added": session["user"]
-        }
-        mongo.db.works.insert_one(work)
         if composer_already_exists:
-            submit = {
+            work = {
+                "genre": request.form.get("genre_name"),
+                "composer": request.form.get("composer"),
+                "work": request.form.get("work"),
+                "description": request.form.get("description"),
+                "url": request.form.get("url"),
+                "user_added": session["user"],
                 "image": this_composer_image
             }
-            mongo.db.works.update({"_id": ObjectId(work)}, submit)
+        else:
+            work = {
+                "genre": request.form.get("genre_name"),
+                "composer": request.form.get("composer"),
+                "work": request.form.get("work"),
+                "description": request.form.get("description"),
+                "url": request.form.get("url"),
+                "user_added": session["user"],
+            }
+        mongo.db.works.insert_one(work)
         flash("Thank You For Contributing!!")
         return redirect(url_for("browse"))
     genres = mongo.db.genres.find().sort("genre_id", 1)
