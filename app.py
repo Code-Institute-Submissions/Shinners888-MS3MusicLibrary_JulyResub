@@ -224,19 +224,25 @@ def edit_composer(composer_id):
 
 
 # Delete any work object
-@app.route("/delete_info/<work_id>")
+@app.route("/delete_info/<work_id>", methods=["GET", "POST"])
 def delete_info(work_id):
-    mongo.db.works.remove({"_id": ObjectId(work_id)})
-    flash("Done!!")
-    return redirect(url_for("browse"))
+    if request.method == "POST":
+        mongo.db.works.delete_one({"_id": ObjectId(work_id)})
+        flash("Done!!")
+        return redirect(url_for("browse"))
+    work = mongo.db.works.find_one({"_id": ObjectId(work_id)})
+    return render_template("delete_info.html", work=work)
 
 
 # Delete any composer object
-@app.route("/delete_composer/<composer_id>")
+@app.route("/delete_composer/<composer_id>", methods=["GET", "POST"])
 def delete_composer(composer_id):
-    mongo.db.composers.remove({"_id": ObjectId(composer_id)})
-    flash("Done!!")
-    return redirect(url_for("composers"))
+    if request.method == "POST":
+        mongo.db.composers.delete_one({"_id": ObjectId(composer_id)})
+        flash("Done!!")
+        return redirect(url_for("composers"))
+    composer = mongo.db.composers.find_one({"_id": ObjectId(composer_id)})
+    return render_template("delete_composer.html", composer=composer)
 
 
 if __name__ == "__main__":

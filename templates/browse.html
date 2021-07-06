@@ -31,12 +31,8 @@
             {% if username == work.user_added or username == "admin" %}
             <div class="row center editDeleteButtons valign-bottom">
                 <a href="{{ url_for('edit_info', work_id=work._id) }}" class="regularButton btn">Edit</a>
-                <a href="#" class="dropdown-trigger regularButton btn" data-target='dropdown1'>Remove</a>
-                <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="{{ url_for('delete_info', work_id=work._id) }}" class="white-text">Delete</a></li>
-                    <hr>
-                    <li><a href="#" class="white-text">Cancel</a></li>
-                </ul>
+                <a href="{{ url_for('delete_info', work_id=work._id) }}" class="regularButton btn">Remove</a>
+
             </div>
             {% else %}
             {% endif %}
