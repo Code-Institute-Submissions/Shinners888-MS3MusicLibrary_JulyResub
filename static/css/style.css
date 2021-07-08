@@ -193,6 +193,15 @@ html * {
         max-width: 12.5%;
         margin: 20px;
     }
+
+    .mainBody {
+        padding: 0 75px;
+    }
+
+    .carousel {
+        margin-top: 20px;
+        min-height: 60vh;
+    }
 }
 
 

@@ -128,15 +128,19 @@ Please note this was an early sketch of the relationships between the various ty
 In MongoDB I created a music library database with four collections: composers, genres, site_users and works. Works is the main collection and gathers data in some shape or form from each other collection. 
 
 - Genres
+
 Each genre has it's own info. And to sort them chronologically in the site, each has an Int ID depending on when that period of classical music occurs. This provides a reference of a time period when a user is uploading a new piece, for those who may not be sure of the classical music eras.
 
 - Site_users
+
 This simply contains a username and password. The user that creates each work will be stored in the work collection so they can edit or delete what they have uploaded if they wish. The passwords are encrypted using the werkzeug password hash
 
 - Composers
+
 Another simple collection. This contains just composer names and their corresponding images. When a user adds a new work, this collection is scanned to see if the user already exists. If it does, no new composer is created. If it exists and has a corresponding image, the ObjectId and composer image url will be imported into the created works object as a nested object. This will allow the composer image to display under any of their works.
 
 - Works
+
 The main collection of this project. The objects in this collection contain at a minimum, the composer name, the name of the work, the genre and the username of the object creator. There should also be a short description and a url to redirect the user to listen to the piece/s. The $text Index search function acts on this collection, querying the composer and genre fields.
 
 
@@ -175,10 +179,10 @@ The main collection of this project. The objects in this collection contain at a
 
 import os
 
-os.environ.setdefault("IP", "0.0.0.0")
-os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "")
-os.environ.setdefault("MONGO_URI", "")
+os.environ.setdefault("IP", "0.0.0.0")<br>
+os.environ.setdefault("PORT", "5000")<br>
+os.environ.setdefault("SECRET_KEY", "")<br>
+os.environ.setdefault("MONGO_URI", "")<br>
 os.environ.setdefault("MONGO_DBNAME", "CLUSTER NAME HERE")
 
 - push env.py to gitignore with __pycache_/
@@ -279,7 +283,19 @@ Browse unavailable to non users which causes an error
 
 Carousel keeps randomly collapsing, particularly on mobile.
 
-- The only suggestion I found for this was to make sure the carousel JQuery commands were in the document ready function, which they previously weren't. Moved Add work h4 tag below carousel. The issue is intermittent and I can't pinpoint what is causing it.
+- Carousel has been given a min height in CSS. This seems to be working. However, as this issue was intermittent, it is possible that this has not completely fixed the issue.
+
+Edit and Delete functions not showing when search has been implemented. 
+
+- Fix: in App.py "username" was added as a variable in @app.route("/search"). The edit and delete options are available based on the user that added that work. Therefore the username needed to still be read after the search.
+
+Delete function dropdown not working for every composer/work. Often deleting incorrect ObjectId.
+
+- Fix: The dropdown option only showed up for the final 4 works/composers and was not linked to the displayed work/composer. I cannot figure out why this was, but as the edit functions were working perfectly, I reformatted the delete option to match. That is, redirecting to a different page to ask if the user is sure, and adding a "POST" method to the delete confirmation button.
+
+Flash messages stay unless you move to a different page or refresh. This is annoying and in the way.
+
+- Fix: using a hint from [Stack Overflow](https://stackoverflow.com/questions/21949948/let-flash-messages-disappear-in-the-same-page-in-rails), a timer was set in my script.js file to remove the flash message after a second.
 
 # Possible Future Features
 

@@ -18,3 +18,9 @@ $(document).ready(function () {
         coverTrigger: false
     });
 });
+
+$(function () {
+    setTimeout(function () {
+        $('.flashMessages').slideUp(500);
+    }, 1000);
+});
