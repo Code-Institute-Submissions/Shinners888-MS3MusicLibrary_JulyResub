@@ -4,18 +4,18 @@
 
 MUSO - The Misanthropic Unicorns Symphony Orchestra presents "Bringing Classic Back"
 
-A community built collection of favourites in the various classical/art music genres, to reignite a love of the music.
+A community built collection of favourites in the various classical/art music genres, to reignite a love of the music and repopularise it.
 
 Features include:
 - The ability to browse favourites uploaded by other users
-- The ability to upload information about your own favourite pieces
-- Admin can update/delete on a case by case basis
+- The ability to upload/edit/delete information about your own favourite pieces
+- Admin can update/delete works and composers on a case by case basis
 - The ability to search by composer or genre
 - Discounts to performances by the symphony orchestra for registered users
 
 ## Goals
 
-To build a community of people who like classical music and recommend music to those who are new to the genre and may find it overwhelming. The symphony orchestra will let the most popular pieces on the website dictate what is performed every few months, and discounts will be available to members of the community for those concerts.
+To gather a community of people who like classical music, and recommend music to those who are new to the genre and may find it overwhelming. The symphony orchestra will incorporate new uploads to the site in performances, and discounts will be available to members of the community for those concerts.
 
 ## UX
 
@@ -35,7 +35,7 @@ It is a basic layout, easy to follow. The 'create' and 'update' pages are not av
 
  - Browse what others have uploaded and follow the spotify link to listen. This will open in a new tab or the app, so the user can continue to browse while listening.
 
- - Under the browse is a prompt to add to the library. If the user knows a piece they think the others might like, they can follow the link.
+ - On the browse page is a prompt to add to the library. If the user knows a piece they think others might like, they can follow the link.
 
  - If the piece has been added by the current user, they have the option to update or delete the piece. The admin user also has these privileges, in case a user misspells or duplicates anything. The delete button contains a dropdown 
 
@@ -47,7 +47,7 @@ It is a basic layout, easy to follow. The 'create' and 'update' pages are not av
 
 ### Aesthetic
 
-In honour of the unsociable unicorns after which the site is named, the navbar, buttons and footer are made up of bright, almost psychadelic ,colours traditionally associated with unicorns, around a dark monochrome website.
+In honour of the unsociable unicorns after which the site is named, the navbar, buttons and footer are made up of bright, psychadelic colours traditionally associated with unicorns, around a dark monochrome website.
 
 
 
@@ -57,19 +57,27 @@ In honour of the unsociable unicorns after which the site is named, the navbar, 
 
 Create a user name and password which will be stored in the database with a password hash for security.
 
-Add your favourite piece with some prompted information, and a link to listen to teh piece/work, to be displayed in the browse section
+Add your favourite piece with some prompted information, and a link to listen to the piece/work, to be displayed in the browse section carousel
 
  - Read
 
 The Browse page reads and displays all infomation in the works collection, gathers descriptive information from the genres collection, and displays edit/delete buttons to the admin or the user who originally created the related work.
 
+For the Admin, the composers page has a list of all composers in the database.
+
  - Update
 
 Pieces can be edited by the admin, or the same user that created them. All 'work' information can be updated.
 
+The admin can edit composer information, adding an image or correctine spelling issues which could lead to duplicates of a composer.
+
  - Delete
 
-A user who created a work, or the admin can delete said work. They will be prompted with a dropdown button to ensure they did not hit delete by accident.
+A user who created a work, or the admin can delete said work. They will be redirected to an 'are you sure you want to delete "X work"' page to ensure they do not accidentally delete anything. 
+
+The admin can delete composers from the composer page. This is handy incase someone creates a duplicate by misspelling. Similarly they will be redirected to an 'are you sure you want to delete "X composer"' page. 
+
+
 
 # Execution
 
@@ -115,34 +123,68 @@ This Project was deployed using [Heroku](https://www.heroku.com/about)
 
 Please note these were early sketches and some elements do not represent the working website
 
-# Data Diagram
+# Data Diagram 
 
-[Data Diagram](https://github.com/Shinners888/MS3MusicLibrary/tree/master/assets/MUSO1.png)
+[Completed Data Diagram](https://dbdiagram.io/d/607a0563ef1b8f6b3dd5ac4e)
 
-Please note this was an early sketch of the relationships between the various types of data. In implementing the project, it became prudent to slightly alter how the collections interacted with one another.
+
+[Original Data Diagram](https://github.com/Shinners888/MS3MusicLibrary/tree/master/assets/MUSO1.png)
+
 
 # Creation and testing
 
 ### Database Creation
 
-In MongoDB I created a music library database with four collections: composers, genres, site_users and works. Works is the main collection and gathers data in some shape or form from each other collection. 
+In MongoDB I created a music library database with four collections: 'genres', 'site_users', 'composers' and 'works'. 'Works' is the main collection and gathers data from each other collection. 
 
 - Genres
 
-Each genre has it's own info. And to sort them chronologically in the site, each has an Int ID depending on when that period of classical music occurs. This provides a reference of a time period when a user is uploading a new piece, for those who may not be sure of the classical music eras.
+Each genre has it's own information. To display them chronologically in the site, each has an Int ID depending on when that period of classical music occurs. This provides a reference of a time period when a user is uploading a new piece, for those who may not be sure of the classical music eras.
+
+|  | | Genre | Chronological Genre Number | Timeline |
+| -- | -- | --- | ----------- | -----------------|
+| Format | ObjectId | String | Int | String |
+| Example | _id1 | Medieval | 1 | c.500 to 1400 |
+| Example | _id2 | Renaissance | 2 | c.1400 to 1600 |
+| Example | _id3 | Romantic | 5 | c.1800 to 1910 |
+
+
+---------------------------
 
 - Site_users
 
 This simply contains a username and password. The user that creates each work will be stored in the work collection so they can edit or delete what they have uploaded if they wish. The passwords are encrypted using the werkzeug password hash
 
+| | User ID| Username | Password Hash |
+| - | - | --- | ----------- |
+| Format | ObjectId | String (created by user) | String |
+| Example | _id | admin | scrambledPasswordHash | 
+
+-------------------
+
 - Composers
 
 Another simple collection. This contains just composer names and their corresponding images. When a user adds a new work, this collection is scanned to see if the user already exists. If it does, no new composer is created. If it exists and has a corresponding image, the ObjectId and composer image url will be imported into the created works object as a nested object. This will allow the composer image to display under any of their works.
+
+| | Composer ID | Composer Name | Composer Image |
+| - | --- | --- | ----------- |
+| Format | ObjectId | String | URL String |
+| Example | _id | Composer Name | Image URL | 
+
+---------
 
 - Works
 
 The main collection of this project. The objects in this collection contain at a minimum, the composer name, the name of the work, the genre and the username of the object creator. There should also be a short description and a url to redirect the user to listen to the piece/s. The $text Index search function acts on this collection, querying the composer and genre fields.
 
+|| Work ID | Genre | Composer | Work Name | Description | URL to listen | Added by User | Image |
+| - | - | --- | ----------- | --- | --- | --- | --- | --- |
+| Format | ObjectId | String (dropdown menu 'genres') | String | String | String | String URL | String from 'site_users' | Object (if Composer is in 'composers', get related composer_id and composer-image) |
+| Example | _id | Modernism | Dmitri Shostakovich | Waltz No. 2 | Description | Spotify Link | Username from site_users |  {"composer_id": _id for Dmitri Shostakovich in composers,                                          "composer_image": image from related composer_id,} |
+
+
+
+------------------
 
 ### Creation 
 1. Initial Commits: Imported flask, flask_pymongo, dnspython, and os, linked to Heroku and MongoDB, tested that an HTML page would display print from app.py. Created a base HTML page.

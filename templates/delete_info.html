@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="headerBar center">
+<div class="headerBarDelete center">
     <h4 class="white-text center">Are you sure you want to delete {{ work.work }}?</h4>
 
 
-    <div class="row center editDeleteButtons valign-bottom">
-        <a href="{{ url_for('browse') }}" class="regularButton btn">No, go back<i
-                class="fas fa-arrow-left white-text"></i>
+    <div class="col s10 offset-s1 editDeleteButtons">
+        <a href="{{ url_for('browse') }}" class="regularButton btn center">No, go back
         </a>
-        <form class="col s6" method="POST" action="{{ url_for('delete_info', work_id=work._id) }}">
-            <button type="submit" class="regularButton btn">Yes, Delete</button>
+    </div>
+    <div class="col s10 offset-s1 editDeleteButtons">
+        <form method="POST" action="{{ url_for('delete_info', work_id=work._id) }}">
+            <button type="submit" class="regularButton btn center">Yes, Delete</button>
         </form>
 
     </div>

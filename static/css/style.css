@@ -15,6 +15,7 @@ html * {
 .mainBody {
     background-image: url("/static/images/orch2.jpg");
     min-height: 100vh;
+    padding: 0 5vw;
     padding-bottom: 80px;
     background-attachment: fixed;
     background-position: center;
@@ -66,12 +67,17 @@ html * {
 }
 
 .modal {
-    background-color: rgba(10, 9, 10, 0.8);
-    margin: 20px 0;
-    padding: 10px;
+    background-color: rgba(10, 9, 10, 1);
+    min-height: 30vh;
+    margin: 100px auto;
+    padding: 20px;
     border-radius: 20px;
     line-height: 35px;
     font-weight: 600;
+}
+
+.modal a {
+    background-color: #5DF052;
 }
 
 .textInputCard h3,
@@ -96,6 +102,7 @@ html * {
 
 .searchBar,
 .headerBar,
+.headerBarDelete,
 .flashMessages h5 {
     background-color: rgba(10, 9, 10, 0.8);
     margin-top: 20px;
@@ -194,8 +201,8 @@ html * {
         margin: 20px;
     }
 
-    .mainBody {
-        padding: 0 75px;
+    .headerBarDelete {
+        margin: 20px 20vw;
     }
 
     .carousel {
