@@ -118,7 +118,7 @@ html * {
 
 .carousel {
     margin-top: 20px;
-    min-height: 70vh;
+    min-height: 60vh;
 }
 
 .carousel.carousel-slider .carousel-item h2 {
@@ -194,17 +194,17 @@ html * {
     margin: 20px;
 }
 
-.imageContainerBigger img {
-    max-height: 20%;
-    max-width: 20%;
-    margin: 20px;
+.homeImageContainer img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 2%;
 }
 
 
 @media only screen and (min-width: 576px) {
     .imageContainer img {
-        max-height: 12.5%;
-        max-width: 12.5%;
+        height: 20%;
+        width: 20%;
         margin: 20px;
     }
 
@@ -224,6 +224,13 @@ html * {
     }
 }
 
+@media only screen and (min-width: 1080px) {
+    .imageContainer img {
+        height: 15%;
+        width: 15%;
+        margin: 20px;
+    }
+}
 
 .editDeleteButtons {
     margin: 20px;

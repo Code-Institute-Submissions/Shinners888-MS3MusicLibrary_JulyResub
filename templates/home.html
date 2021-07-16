@@ -1,18 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="textInputCard homePage">
-    <h2 class="center-align">Misanthropic Unicorns<br> Symphony Orchestra</h2>
+    <h3 class="center-align">Misanthropic Unicorns<br> Symphony Orchestra</h3>
     <hr>
-    <h3 class="center-align">Bringing Classic Back</h3>
-    <h4 class="center-align">A Community Built Classical Music Library</h4>
+    <h4 class="center-align">Bringing Classic Back</h4>
+    <h4 class="center-align">Join a Community of Classical Music Lovers</h4>
     {% if not session.user %}
     <hr>
-    <h5 class="center">Are you looking for new classical music recommendations?<br>
-        MUSO have created a community built classical music library! Find new classical music favourites to listen to,
-        or share your own!<br>
-        <a href="{{ url_for('register') }}"><u>Register</u></a>, or <a href="{{ url_for('login') }}"><u>log in</u></a>
-        Here!
-    </h5>
+    <div class="row">
+        <div class="col m5">
+            <h5 class="center">We are a group of classical music afficionados (and newbies too), sharing and finding new
+                favourite pieces and composers. Join for free to browse our library and see what we're listening to!<br>
+            </h5>
+        </div>
+
+
+        <div class="col m5 offset-m2">
+
+            <h5 class="center"><a href="{{ url_for('register') }}"><u>Register</u></a>, or <a
+                    href="{{ url_for('login') }}"><u>log
+                        in</u></a> to browse our community suggestions for classical music worth listening to! Please
+                contribute your own favourites. Happy listening!
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <h5 class="center">We will also let you know when we have upcoming concerts. Perhaps your favourites will be
+            performed!</h5>
+    </div>
     {% endif %}
 </div>
 {% endblock %}

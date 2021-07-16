@@ -112,15 +112,16 @@ This Project was deployed using [Heroku](https://www.heroku.com/about)
 
 # Wireframes
 
-[Desktop1](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop.jpg)
+[Desktop Home/Sign In](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop.jpg)
 
-[Desktop2](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop1.jpg)
 
-[Desktop3](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop2.jpg)
 
-[Desktop4](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop3.jpg)
+[Desktop Browse](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop2.jpg)
 
-[Desktop5](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop4.jpg)
+[Desktop Search](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop3.jpg)
+
+[Desktop Register/ Login](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSODesktop4.jpg)
+
 [Mobile](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/wireframes/MUSOMobile.jpg)
 
 Please note these were early sketches and some elements do not represent the working website
@@ -135,11 +136,12 @@ Please note these were early sketches and some elements do not represent the wor
 
 # Creation and testing
 
-### Database Creation
+## Database Creation
 
 In MongoDB I created a music library database with four collections: 'genres', 'site_users', 'composers' and 'works'. 'Works' is the main collection and gathers data from each other collection. 
 
-- Genres
+-------------
+### 1. GENRES
 
 Each genre has it's own information. To display them chronologically in the site, each has an Int ID depending on when that period of classical music occurs. This provides a reference of a time period when a user is uploading a new piece, for those who may not be sure of the classical music eras.
 
@@ -151,9 +153,10 @@ Each genre has it's own information. To display them chronologically in the site
 | Example | _id3 | Romantic | 5 | c.1800 to 1910 |
 
 
----------------------------
+--------------------
 
-- Site_users
+### 2. SITE USERS
+
 
 This simply contains a username and password. The user that creates each work will be stored in the work collection so they can edit or delete what they have uploaded if they wish. The passwords are encrypted using the werkzeug password hash
 
@@ -164,7 +167,8 @@ This simply contains a username and password. The user that creates each work wi
 
 -------------------
 
-- Composers
+### 3. COMPOSERS
+
 
 Another simple collection. This contains just composer names and their corresponding images. When a user adds a new work, this collection is scanned to see if the user already exists. If it does, no new composer is created. If it exists and has a corresponding image, the ObjectId and composer image url will be imported into the created works object as a nested object. This will allow the composer image to display under any of their works.
 
@@ -175,7 +179,7 @@ Another simple collection. This contains just composer names and their correspon
 
 ---------
 
-- Works
+### 4. WORKS
 
 The main collection of this project. The objects in this collection contain at a minimum, the composer name, the name of the work, the genre and the username of the object creator. There should also be a short description and a url to redirect the user to listen to the piece/s. The $text Index search function acts on this collection, querying the composer and genre fields.
 
@@ -188,7 +192,7 @@ The main collection of this project. The objects in this collection contain at a
 
 ------------------
 
-### Creation 
+## Creation 
 1. Initial Commits: Imported flask, flask_pymongo, dnspython, and os, linked to Heroku and MongoDB, tested that an HTML page would display print from app.py. Created a base HTML page.
 
 2. Added Registration and login pages linked to site_users collection in MongoDB. Styled base html, added flash messages and a method to display them (in base.html) Checked all git push commands deployed to Heroku.
@@ -217,7 +221,7 @@ The main collection of this project. The objects in this collection contain at a
 
 14. Set debug to False
 
-# Deployment
+## Deployment
 
 - Create env.py file with the following fields:
 
@@ -261,7 +265,7 @@ Copy in the key, value pairs to match those in env.py
 Deploy Branch. This will take a few minutes. Anything you push from Github now will automatically update in the Heroku App
 
 
-### Testing
+## Testing
 
 Genre would not upload genre_name from the add_work function. Appeared as 'null' or '1' in MongoDB
 
