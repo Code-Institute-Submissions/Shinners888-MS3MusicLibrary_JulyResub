@@ -194,10 +194,23 @@ html * {
     margin: 20px;
 }
 
+.imageContainerBigger img {
+    max-height: 20%;
+    max-width: 20%;
+    margin: 20px;
+}
+
+
 @media only screen and (min-width: 576px) {
     .imageContainer img {
         max-height: 12.5%;
         max-width: 12.5%;
+        margin: 20px;
+    }
+
+    .imageContainerBigger img {
+        max-height: 25%;
+        max-width: 25%;
         margin: 20px;
     }
 

@@ -1,15 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row textInputCard z-depth-5">
-    <h3 class="center">Hi {{ username.capitalize() }}!!</h3>
-    <hr>
-    <h4 class="center">We currently have no upcoming concerts due to restrictions</h4>
-    <hr>
-    <h5 class="center">Remember to check back in after restrictions to see what shows we have coming up.
-        Until then, feel free to <a href="{{ url_for('browse') }}"><u>browse</u></a> or search for music to listen to.
-        And of course, if you think
-        something is missing from our community library, please feel free to contribute!</h5>
+    <h3 class="center">Hi {{ username.capitalize() }}!! See your uploads so far. <i class="fas fa-smile"></i></h3>
 
 </div>
+<div class="row">
+
+    <div class="card workInputCard">
+
+        {% for work in works %}
+
+        <div class="card-content white-text center">
+            <span class="card-title">{{ work.composer }}</span>
+            <span class="card-title">{{ work.work }}</span>
+
+        </div>
+        <div class="card-action center">
+            <a href="{{ url_for('edit_info', work_id=work._id) }}" class="regularButton btn">Edit</a>
+            <a href="{{ url_for('delete_info', work_id=work._id) }}" class="regularButton btn">Remove</a>
+        </div>
+        {% endfor %}
+
+
+        <div class="card-content white-text center">
+            <h3 class="card-title">Well, this was all we could find for you!</h3>
+            <span class="card-title">Browse to see what others have added to our library <a
+                    href="{{ url_for('browse') }}"><u>here</u></a>. Feel free to contribute!</span>
+        </div>
+
+
+
+    </div>
+
+</div>
+
 
 {% endblock %}

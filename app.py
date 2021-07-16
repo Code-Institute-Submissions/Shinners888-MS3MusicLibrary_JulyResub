@@ -105,11 +105,17 @@ def login():
 # Greets newly logged in user on their homepage
 @app.route("/mymusic/<username>", methods=['GET', 'POST'])
 def mymusic(username):
+    works = mongo.db.works.find(
+        {"user_added": session["user"]})
+    composers = mongo.db.composers.find()
+    genres = mongo.db.genres.find().sort("genre_id", 1)
     username = mongo.db.site_users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("mymusic.html", username=username)
+        return render_template(
+            "mymusic.html", username=username,
+            works=works, genres=genres, composers=composers)
 
     return redirect(url_for("login"))
 

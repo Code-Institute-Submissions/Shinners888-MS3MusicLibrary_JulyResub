@@ -13,6 +13,8 @@ Features include:
 - The ability to search by composer or genre
 - Discounts to performances by the symphony orchestra for registered users
 
+[View the live project here](http://bringing-classic-back.herokuapp.com/home)
+
 ## Goals
 
 To gather a community of people who like classical music, and recommend music to those who are new to the genre and may find it overwhelming. The symphony orchestra will incorporate new uploads to the site in performances, and discounts will be available to members of the community for those concerts.
@@ -31,7 +33,7 @@ It is a basic layout, easy to follow. The 'create' and 'update' pages are not av
 
 #### Logged in
 
- - You will be taken immediately to the home page which is where upcoming concerts will be listed
+ - You will be taken immediately to the home page.
 
  - Browse what others have uploaded and follow the spotify link to listen. This will open in a new tab or the app, so the user can continue to browse while listening.
 
