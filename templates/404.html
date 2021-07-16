@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="textInputCard homePage">
-    <h4>Uh oh, looks like that is not a thing! Perhaps an incorrect spotify or youtube URL was entered? May we suggest
-        manually searching that one for now! Go back to <a href="{{ url_for('browse') }}">
-            <h4 class="white-text">Browse</h4>
-        </a> or search on <a href="https://www.spotify.com/us/" target="_blank">Spotify <i
-                class="fab fa-spotify"></i></a>
-    </h4>
+<div class="row">
+    <div class="col m6 offset-m3">
+        <div class="textInputCard homePage center">
+            <h4>Uh oh, looks like that is not a thing! Perhaps it's an incorrect spotify or youtube URL?<br> May we
+                suggest
+                manually searching that one for now on <a href="https://www.spotify.com/us/" target="_blank"><u>Spotify
+                        <i class="fab fa-spotify"></i></u></a>?<br><br><br> Or return to <a
+                    href="{{ url_for('browse') }}"><u>Browse</u>
+
+                </a>
+            </h4>
+        </div>
+    </div>
 </div>
 {% endblock %}
