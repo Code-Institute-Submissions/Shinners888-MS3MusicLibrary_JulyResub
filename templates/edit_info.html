@@ -15,7 +15,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select id="genre_name" name="genre_name" class="validate grey-text" required>
-                    <option value="" disabled selected>Work Genre</option>
+                    <option value="" disabled selected>Work Genre*</option>
                     {% for genre in genres %}
                     {% if genre.genre_name == work.genre %}
                     <option value="{{ work.genre }}" selected>{{ genre.genre_name }} : {{ genre.timeline }}</option>
@@ -27,14 +27,14 @@
             </div>
             <div class="input-field col s12">
                 <input id="composer" name="composer" type="text" class="validate" value="{{ work.composer }}" required>
-                <label for="composer">Composer Name</label>
+                <label for="composer">Composer Name*</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <input id="work" name="work" type="text" class="validate" autocomplete="off" value="{{ work.work }}"
                     required>
-                <label for="work">Name of Work</label>
+                <label for="work">Name of Work*</label>
             </div>
         </div>
         <div class="row">

@@ -1,4 +1,4 @@
-## Testing
+## Testing Issues and Fixes
 
 Genre would not upload genre_name from the add_work function. Appeared as 'null' or '1' in MongoDB
 
@@ -44,6 +44,26 @@ Fix attempts included:
 [Edit Composer](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/EditComposerLighthouse.png)
 
 # User Testing
+
+The user lands on the home page, logged out, with a brief description of the site's purpose. A direction to 'register' or 'log in', redirects to these respective pages.
+
+Once logged in, the user lands on their home page with their own uploads displayed (or just a note saying 'this is all we could find for you', with a redirect prompt to the browse page).
+
+In the browse page, the user can see what other people have uploaded to the site by browsing the carousel. There is a link to add their own pieces at the top of the page, and a search function to search by genre or composer, under the carousel. 
+
+If they wish to add a piece and change their mind, there is a back to browse button at the top of the page. Otherwise they will be prompted to fill in the form (only the genre, composer and work name fields are necessary to proceed). The add button is a brightly coloured plus at the bottom of the screen.
+
+Once their piece is added, they will return to the browse screen. There, they can see their piece as part of the library, and edit or delete details as necessary.
+
+The user does not need to worry about adding an image for the composer. If the composer exists in the database with an image, that image will automatically populate the image div in the browse section. Otherwise, a placeholder image of a cello will be used.
+
+If the choose to delete, they will be redirected to an 'are you sure' prompt, to ensure no accidental deleteions. The edit screen resembles the add screen with the information to edit already populated.
+
+To search, they can input a composer or genre name in the search bar at the bottom. To undo the search, they can press, 'See All'.
+
+
+
+# User Feedback and fixes
 User issues noted: 
 
 Difficult to read with color scheme 

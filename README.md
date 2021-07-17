@@ -1,7 +1,7 @@
 # Music Library Collaboration
 
 ## Data-Centric Development Project MS3 - Code Institute
-![Display](assets/projectimages/screensimage.png)
+![Display](assets/projectImages/screensimage.png)
 
 MUSO - The Misanthropic Unicorns Symphony Orchestra presents "Bringing Classic Back"
 
@@ -129,7 +129,7 @@ Please note these were early sketches and some elements do not represent the wor
 
 [Data Diagram - dbdiagram.io](https://dbdiagram.io/d/607a0563ef1b8f6b3dd5ac4e)
 
-![Database layout image](assets/projectimages/DBMUSO.png)
+![Database layout image](assets/projectImages/DBMUSO.png)
 
 
 
@@ -152,7 +152,7 @@ Each genre has it's own information. To display them chronologically in the site
 | Example | _id2 | Renaissance | 2 | c.1400 to 1600 |
 | Example | _id3 | Romantic | 5 | c.1800 to 1910 |
 
-![Database layout image](assets/projectimages/genresdb.png)
+![Database layout image](assets/projectImages/genresdb.png)
 --------------------
 
 ### 2. SITE USERS
@@ -177,7 +177,7 @@ Another simple collection. This contains just composer names and their correspon
 | Format | ObjectId | String | URL String |
 | Example | _id | Composer Name | Image URL | 
 
-![Database layout image](assets/projectimages/composersdb.png)
+![Database layout image](assets/projectImages/composersdb.png)
 ---------
 
 ### 4. WORKS
@@ -189,7 +189,7 @@ The main collection of this project. The objects in this collection contain at a
 | Format | ObjectId | String (dropdown menu 'genres') | String | String | String | String URL | String from 'site_users' | Object (if Composer is in 'composers', get related cSymphony | Description | Spotify Link | Username from site_users |  {"ObjectId": _id for Beethoven in 'composers'(see above),                                          "composer_image": image from related composer_id,} |
 
 
-![Database layout image](assets/projectimages/worksdb.png)
+![Database layout image](assets/projectImages/worksdb.png)
 ------------------
 
 ## Creation 
@@ -270,6 +270,10 @@ Deploy Branch. This will take a few minutes. Anything you push from Github now w
 An upvote downvote system, with a possibility to search by votes.
 
 A comments section to discuss the pieces.
+
+# Testing and User Testing
+
+[Testing.md](https://github.com/Shinners888/MS3MusicLibrary/blob/master/TESTING.md)
 
 
 # Credits

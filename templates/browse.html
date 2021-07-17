@@ -13,18 +13,21 @@
             <h2>{{ work.composer }}</h2>
             <h2>{{ work.work }}</h2>
             <p class="white-text">{{ work.description }}</p>
-            {% if not work.image %}
-            <div class="imageContainer">
-                <img src="static/images/cello.jpg" class="circle composerImage">
-            </div>
-            {% else %}
+            {% if work.image.composer_image|length != 0 %}
             <div class="imageContainer">
                 <img src="{{ work.image.composer_image }}" class="circle composerImage">
             </div>
+            {% else %}
+            <div class="imageContainer">
+                <img src="static/images/cello.jpg" class="circle composerImage">
+            </div>
+
 
             {% endif %}
+            {% if work.url|length != 0 %}
             <a class="spotifyButton" href="{{ work.url }}" target="_blank">Listen Here <i
                     class="fab fa-spotify"></i></a>
+            {% endif %}
             <div class="hide-on-med-and-up valign-center navButtons">
                 <i class="fas fa-backward left"></i>
                 <i class="fas fa-forward right"></i></div>
