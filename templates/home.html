@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="textInputCard homePage">
-    <h3 class="center-align">Misanthropic Unicorns<br> Symphony Orchestra</h3>
+    <h3 class="center-align hide-on-small-only">Misanthropic Unicorns<br> Symphony Orchestra</h3>
+    <h4 class="center-align hide-on-med-and-up">Misanthropic Unicorns<br> Symphony Orchestra</h4>
+
     <hr>
     <h4 class="center-align">Bringing Classic Back</h4>
-    <h4 class="center-align">Join a Community of Classical Music Lovers</h4>
     {% if not session.user %}
+    <h4 class="center-align">Join a Community of Classical Music Lovers</h4>
+
     <hr>
     <div class="row">
         <div class="col m5">

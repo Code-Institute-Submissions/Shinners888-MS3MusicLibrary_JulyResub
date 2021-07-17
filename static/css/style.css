@@ -85,8 +85,9 @@ html * {
 .textInputCard h5,
 .textInputCard h5 a u,
 .carousel-item h2 {
-    line-height: 35px;
+    line-height: 40px;
     font-weight: 600;
+
 }
 
 
@@ -192,12 +193,6 @@ html * {
     max-height: 30%;
     max-width: 30%;
     margin: 20px;
-}
-
-.homeImageContainer img {
-    max-height: 100%;
-    max-width: 100%;
-    margin: 2%;
 }
 
 

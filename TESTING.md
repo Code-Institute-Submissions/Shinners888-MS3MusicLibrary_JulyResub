@@ -61,6 +61,7 @@ If the choose to delete, they will be redirected to an 'are you sure' prompt, to
 
 To search, they can input a composer or genre name in the search bar at the bottom. To undo the search, they can press, 'See All'.
 
+If a user has uploaded a faulty link to listen to the piece, or no link at all, the spotify button will redirect to a custom 404 page in a new tab, with a prompt to open spotify and search for the piece, or return to the browse page.
 
 
 # User Feedback and fixes
@@ -97,3 +98,15 @@ Delete function dropdown not working for every composer/work. Often deleting inc
 Flash messages stay unless you move to a different page or refresh. This is annoying and in the way.
 
 - Fix: using a hint from [Stack Overflow](https://stackoverflow.com/questions/21949948/let-flash-messages-disappear-in-the-same-page-in-rails), a timer was set in my script.js file to remove the flash message after a second.
+
+404 page is offputting.
+
+- Fix: A custom 404 page using the flask error handler function.
+
+If no string value for spotify url, the new tab opens at the start of the browse instead of the 404 page.
+
+- Fix: changed button to only display if there is any value in the string associated with the URL in the database.
+
+If piece is edited without composer image uploaded in the meantime, no image displays (this is because, now the composer exists in the database but stall has no related image. But as the object now exists in the work part of the database, it is providing an empty string as the image information.)
+
+- Fix: as above, changed non-cello image to only display if there is any value in the string associated with the image in the database, instead of only displaying if the object doesn't exist.

@@ -15,7 +15,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select id="genre_name" name="genre_name" class="validate grey-text" required>
-                    <option value="" disabled selected>Work Genre*</option>
+                    <label value="" disabled>Work Genre*</label>
                     {% for genre in genres %}
                     <option value="{{ genre.genre_name }}">{{ genre.genre_name }} : {{ genre.timeline }}</option>
                     {% endfor %}

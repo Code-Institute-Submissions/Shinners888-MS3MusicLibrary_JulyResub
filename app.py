@@ -41,6 +41,16 @@ def browse():
         username=username)
 
 
+@app.route("/browselogout")
+def browselogout():
+    works = mongo.db.works.find()
+    composers = mongo.db.composers.find()
+    genres = mongo.db.genres.find().sort("genre_id", 1)
+    return render_template(
+        "browselogout.html", works=works,
+        composers=composers, genres=genres)
+
+
 # Search works by genre or composer.
 @app.route("/search", methods=["GET", "POST"])
 def search():

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<h4 class="headerBar white-text center">Add to our library <a href="{{ url_for('add_work') }}"><u
-            class="white-text">here!</u></a>
+<h4 class="headerBar white-text center">You must be <a href="{{ url_for('login') }}"><u class="white-text">logged in
+        </u></a>to add to our library or search.
 </h4>
 <div class="workInputCard">
     <div class="carousel carousel-slider center">
@@ -31,14 +31,12 @@
             <div class="hide-on-med-and-up valign-center navButtons">
                 <i class="fas fa-backward left"></i>
                 <i class="fas fa-forward right"></i></div>
-            {% if username == work.user_added or username == "admin" %}
+
             <div class="row center editDeleteButtons valign-bottom">
                 <a href="{{ url_for('edit_info', work_id=work._id) }}" class="regularButton btn">Edit</a>
                 <a href="{{ url_for('delete_info', work_id=work._id) }}" class="regularButton btn">Remove</a>
 
             </div>
-            {% else %}
-            {% endif %}
 
         </div>
 
@@ -52,26 +50,4 @@
 
 </div>
 
-<div class="searchBar container">
-    <form action="{{ url_for('search') }}" method="POST">
-        <div class="row">
-            <div class="input-field col s12 m10 offset-m1 l8">
-                <div class="center">
-                    <input placeholder="Search Composers or Genres" id="search_by" name="search_by" type="text"
-                        class="validate" required>
-                </div>
-            </div>
-            <div class="col s8 l4 right"><button type="submit"
-                    class="btn-large regularButton waves-light">Search</button>
-            </div>
-        </div>
-    </form>
-    <div class="row">
-        <div class="col s8 l4 right">
-            <a href="{{ url_for('browse') }}" class="btn-large regularButton waves-dark">
-                See All
-            </a>
-        </div>
-    </div>
-</div>
 {% endblock %}
