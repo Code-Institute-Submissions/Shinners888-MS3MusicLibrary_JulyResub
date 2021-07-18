@@ -57,12 +57,13 @@ In honour of the unsociable unicorns after which the site is named, the navbar, 
 
  - There is a navbar available at all times to the user, and most pages have a 'return to browse' button, as 'Browse' is the feature page of the site.
 
+ [User Testing is outlined here](https://github.com/Shinners888/MS3MusicLibrary/blob/master/TESTING.md)
+
+
  #### Admin
 
- - As well as editing or deleting works, an admin can edit composer information. If a new composer has been entered into the database, they will not yet have a related photo. The admin can upload a photo in the composers page. They can then click edit-and-save for any works by the respective composer, in order to have the new image displayed.
+ - As well as editing or deleting works, an admin can edit composer information. If a new composer has been entered into the database, they will not yet have a related photo. The admin can upload a photo in the composers page. They can then click edit-and-save for any works by the respective composer, in order to have the new image displayed. The composers will be split into those that have images in the database, and those that do not.
 
-
-[User Testing](https://github.com/Shinners888/MS3MusicLibrary/blob/master/TESTING.md)
 
 # Technologies and Resources Used
 
@@ -183,7 +184,7 @@ This simply contains a username and password. The user that creates each work wi
 ### 3. COMPOSERS
 
 
-Another simple collection. This contains just composer names and their corresponding images. When a user adds a new work, this collection is scanned to see if the user already exists. If it does, no new composer is created. If it exists and has a corresponding image, the ObjectId and composer image url will be imported into the created works object as a nested object. This will allow the composer image to display under any of their works.
+Another simple collection. This contains just composer names and their corresponding images. When a user adds a new work, this collection is scanned to see if the composer already exists. If it does, no new composer is created. If it exists and has a corresponding image, the ObjectId and composer image url will be imported into the created works object, as a nested object. This will allow the composer image to display under any of their works in the library.
 
 | | Composer ID | Composer Name | Composer Image |
 | - | --- | --- | ----------- |
@@ -199,7 +200,11 @@ The main collection of this project. The objects in this collection contain at a
 
 || Work ID | Genre | Composer | Work Name | Description | URL to listen | Added by User | Image |
 | - | - | --- | ----------- | --- | --- | --- | --- | --- |
-| Format | ObjectId | String (dropdown menu 'genres') | String | String | String | String URL | String from 'site_users' | Object (if Composer is in 'composers', get related cSymphony | Description | Spotify Link | Username from site_users |  {"ObjectId": _id for Beethoven in 'composers'(see above),                                          "composer_image": image from related composer_id,} |
+| Format | ObjectId | String (dropdown menu 'genres') | String | String | String | String URL | String from 'site_users' | Object (if Composer is in 'composers', get related composer_id and composer-image) |
+| Example | _id | Romantic | Beethoven | Symphony | Description | Spotify Link | Username from site_users |  {"ObjectId": _id for Beethoven in 'composers'(see above),                                          "composer_image": image from related composer_id,} |
+
+
+
 
 
 ![Database layout image](assets/projectImages/worksdb.png)
