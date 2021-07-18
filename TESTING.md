@@ -106,7 +106,7 @@ New visitor to the site should be able to see the library, to have an idea of wh
 
 - The genre dropdown in the add work section. The asterisk is not an elegant fix and this can potentially still be confusing to a user.
 
-- If any string is added to the composer image, or spotify/youtube link feild, this will cause error. For the composer, there will be no image, and the faulty link to Spotify or Youtube will throw a 404 error.
+- If any incorrect string is added to the composer image, or spotify/youtube link field, this will cause an error. For the composer, there will be no image, and the faulty link to Spotify or Youtube will throw a 404 error.
 
 - On particularly slim mobile devices, the hero image is not clear.
 

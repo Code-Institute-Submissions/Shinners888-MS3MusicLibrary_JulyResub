@@ -1,9 +1,9 @@
 # Music Library Collaborative
 
 ## Data-Centric Development Project MS3 - Code Institute
-![Display](assets/projectImages/screensimage.png)
+![Display](assets/projectImages/screensimage1.png)
 
-MUSO - The Misanthropic Unicorns Symphony Orchestra's Music Library Collective
+MUSO - The Misanthropic Unicorns Symphony Orchestra's Music Library Collaborative
 
 A community built collection of favourite works in the various classical/art music genres, to repopularise classical music in the 21st Century.
 
@@ -26,7 +26,7 @@ To provide a place for a community of people who like classical music, and recom
 
 - I am new to classical music and trying to find more pieces to listen to, to appreciate the genre.
 
-- I am a fan of the orchestra and would like to bring my favourite pieces to their attention, with the intention that they will perform these pieces.
+- I am a fan of the orchestra and would like to bring my favourite pieces to their attention, with the intention that they will someday perform these pieces.
 
 I want a simple site with a library of pieces to listen to. I would like the option to browse the library, without needing to register or log in. I understand that this has limited features and if I wish to avail of more features, be able to engage with the site, or get discounts to the orchestra concerts, I need to register and log in.
 
