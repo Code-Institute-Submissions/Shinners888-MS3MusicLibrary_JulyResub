@@ -70,7 +70,7 @@ html * {
 }
 
 .imageCardText {
-    background-color: rgba(223, 223, 223, 0.4);
+    background-color: rgba(223, 223, 223, 0.6);
     line-height: 43px;
     border-radius: 10px;
 }
@@ -136,7 +136,7 @@ html * {
 
 .carousel {
     margin-top: 20px;
-    min-height: 60vh;
+    min-height: 70vh;
 }
 
 .carousel.carousel-slider .carousel-item h2 {
@@ -271,6 +271,10 @@ html * {
         padding-right: 12%;
         padding-top: 15px;
         padding-bottom: 20px;
+    }
+
+    .imageCardText {
+        background-color: rgba(223, 223, 223, 0.4);
     }
 }
 

@@ -12,6 +12,9 @@
         <div class="carousel-item white-text" href="#one!">
             <h2>{{ work.composer }}</h2>
             <h2>{{ work.work }}</h2>
+            <div class="hide-on-med-and-up valign-center navButtons">
+                <i class="fas fa-backward left"></i>
+                <i class="fas fa-forward right"></i></div>
             <p class="white-text">{{ work.description }}</p>
             {% if work.image and work.image.composer_image|length != 0 %}
             <div class="imageContainer">
@@ -28,9 +31,7 @@
             <a class="spotifyButton" href="{{ work.url }}" target="_blank">Listen Here <i
                     class="fab fa-spotify"></i></a>
             {% endif %}
-            <div class="hide-on-med-and-up valign-center navButtons">
-                <i class="fas fa-backward left"></i>
-                <i class="fas fa-forward right"></i></div>
+
 
         </div>
 
