@@ -1,36 +1,61 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="textInputCard homePage">
-    <h3 class="center-align hide-on-small-only">Misanthropic Unicorns<br> Symphony Orchestra</h3>
-    <h4 class="center-align hide-on-med-and-up">Misanthropic Unicorns<br> Symphony Orchestra</h4>
+{% if not session.user %}
+<div class="imageCard">
 
-    <hr>
-    <h4 class="center-align">Bringing Classic Back</h4>
-    {% if not session.user %}
-    <h4 class="center-align">Join a Community of Classical Music Lovers</h4>
+    <h3 class="right-align hide-on-small-only "><span class="black-text imageCardText">
+            Misanthropic<br>Unicorns<br>Symphony<br>Orchestra</span><br><br></h3>
 
+
+    <h4 class="right-align hide-on-med-and-up "><span class="black-text imageCardText">
+            Misanthropic<br>Unicorns<br>Symphony<br>Orchestra</span><br><br><br><br></h4>
+</div>
+<h4 class="center hide-on-small-only"><a href="{{ url_for('browselogout') }}" class="center largeButton">Browse our
+        library</a></h4>
+<h5 class="hide-on-med-and-up center"><a href="{{ url_for('browselogout') }}" class="largeButton">Browse our
+        library</a></h5>
+
+
+<div class="textInputCard">
     <hr>
     <div class="row">
         <div class="col m5">
-            <h5 class="center">We are a group of classical music afficionados (and newbies too), sharing and finding new
-                favourite pieces and composers. Join for free to browse our library and see what we're listening to!<br>
+
+            <h5 class="center">MUSO is creating a community space for classical music fans to share their
+                favourite pieces. <a href="{{ url_for('browselogout') }}"><u>Browse</u></a> to see what we are
+                about!
             </h5>
+
         </div>
 
 
         <div class="col m5 offset-m2">
 
-            <h5 class="center"><a href="{{ url_for('register') }}"><u>Register</u></a>, or <a
+            <h5 class="center"><a href="{{ url_for('register') }}"><u>Register</u></a> for free, or <a
                     href="{{ url_for('login') }}"><u>log
-                        in</u></a> to browse our community suggestions for classical music worth listening to! Please
-                contribute your own favourites. Happy listening!
+                        in</u></a> to contribute to our library. Members also get discounts to our performances.
+                Win-win!
             </h5>
         </div>
     </div>
-    <div class="row">
-        <h5 class="center">We will also let you know when we have upcoming concerts. Perhaps your favourites will be
-            performed!</h5>
-    </div>
-    {% endif %}
 </div>
+{% else %}
+<div class="imageCard">
+
+    <h3 class="right-align hide-on-small-only black-text">
+        Misanthropic<br>Unicorns<br>Symphony<br>Orchestra<br><br><br><br></h3>
+    <h4 class="right-align hide-on-med-and-up black-text">
+        Misanthropic<br>Unicorns<br>Symphony<br>Orchestra<br><br><br><br>
+    </h4>
+
+
+</div>
+<div class="textInputCard">
+    <h3 class="center-align"><a href="{{ url_for('browse') }}" class="largeButton center">Browse</a>
+    </h3>
+
+    <h4 class="center-align">Bringing Classic Back</h4>
+</div>
+{% endif %}
+
 {% endblock %}

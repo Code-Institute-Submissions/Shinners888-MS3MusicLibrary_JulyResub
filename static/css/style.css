@@ -57,6 +57,23 @@ html * {
 }
 
 /* Cards modals and forms */
+.imageCard {
+    margin-top: -20px;
+    border-radius: 10px;
+    background-image: url("/static/images/silhouette.jpg");
+    min-height: 40vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5px;
+}
+
+.imageCardText {
+    background-color: rgba(245, 245, 245, 0.6);
+    line-height: 43px;
+    border-radius: 2px;
+}
 
 .textInputCard,
 .workInputCard {
@@ -170,6 +187,17 @@ html * {
     margin: 15px;
 }
 
+.largeButton {
+    border-radius: 20px;
+    border: 1px solid black;
+    color: black;
+    background: whitesmoke;
+    box-shadow: black;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+}
+
+.largeButton:hover,
 .addButton:hover,
 .regularButton:hover {
     background: #D652F0;
@@ -217,6 +245,17 @@ html * {
         margin-top: 20px;
         min-height: 60vh;
     }
+
+    .imageCard {
+        margin-top: -20px;
+        padding-bottom: 40px;
+        min-height: 40vh;
+    }
+
+    .imageCardText {
+        line-height: 57px;
+    }
+
 }
 
 @media only screen and (min-width: 1080px) {
@@ -224,6 +263,14 @@ html * {
         height: 15%;
         width: 15%;
         margin: 20px;
+    }
+
+    .imageCard {
+        margin-top: 0px;
+        background-position: right;
+        padding-right: 12%;
+        padding-top: 15px;
+        padding-bottom: 20px;
     }
 }
 

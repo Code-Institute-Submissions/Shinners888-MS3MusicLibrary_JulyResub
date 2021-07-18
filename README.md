@@ -280,6 +280,8 @@ A comments section to discuss the pieces.
 
 Orchestra Image: [Arindam Mahanta on Unsplash](https://unsplash.com/photos/VEOk8qUl9DU)
 
+Silhouette Image [Photo by Alberto Bigoni on Unsplash](https://unsplash.com/photos/AAnoZVR6vm8)
+
 Cello Image: [Dominic Scythe on Unsplash](https://unsplash.com/photos/lDKmtwvrZZs)
 
 Unicorn Favicon: [Clipart Key](https://www.clipartkey.com/view/bhiwTb_illustration/)
