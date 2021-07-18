@@ -59,6 +59,9 @@ def search():
     works = list(mongo.db.works.find({"$text": {"$search": search_by}}))
     username = mongo.db.site_users.find_one(
         {"username": session["user"]})["username"]
+    if not works:
+        flash("No Results for that search Criteria")
+        return redirect(url_for("browse"))
     return render_template(
         "browse.html", works=works,
         genres=genres, username=username)

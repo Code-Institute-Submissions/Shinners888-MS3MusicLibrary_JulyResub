@@ -19,29 +19,8 @@ Fix attempts included:
 -  using the [project](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/) method to gather the information from the composer ID and create a separate image filed in the work document. The result of this was, upon creating a new work, instead of having an _id: ObjectId key, value, it had an "image": "composer_image" key, value. 
 
 
-- FIX: Made use of the function to find whether a composer already existed and the above mentioned project method. Got the composer ID from this and could extract the composer image. This is then inserted into the work as an object. Additionally, I added this into the edit work part of app.py. This way, if a composer only receives an image after already being entered to the database via a work, the admin can just click edit and save on the work, and the image will update. In the meantime, there will be a placeholder of a Cello
+- FIX: Made use of the function to find whether a composer already existed and the above mentioned project method. This gets the object IDassociated with said composer name, and gets the related composer_image. This is then inserted into the work as an object. Additionally, I added this into the edit work part of app.py. This way, if a composer only receives an image after already being entered to the database via a work, the admin can just click edit and save on the work, and the image will update. In the meantime, there will be a placeholder of a Cello.
 
-# Lighthouse Reports
-
-[HomePageLoggedIn](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/HomeLoggedInLighthouse.png)
-
-[HomePageLoggedOut](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/HomeLoggedOutLighthouse.png)
-
-[Browse](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/BrowseLighthouse.png)
-
-[Login](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/LogInLighthouse.png)
-
-[Register](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/RegisterLighthouse.png)
-
-[Add Work](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/AddPieceLighthouse.png)
-
-[Edit Work](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/EditPieceLighthouse.png)
-
-[Composers](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/ComposersLighthouse.png)
-
-[Add Composer]()
-
-[Edit Composer](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/EditComposerLighthouse.png)
 
 # User Testing
 
@@ -65,6 +44,9 @@ If a user has uploaded a faulty link to listen to the piece, or no link at all, 
 
 
 # User Feedback and fixes
+
+Two people tested the app for functionality and UX feedback.
+
 User issues noted: 
 
 Difficult to read with color scheme 
@@ -74,10 +56,6 @@ Difficult to read with color scheme
 Edit/delete buttons don't work on mobile if in same latitude as scroll buttons 
 
 - Fix: as above in testing section
-
-Delete button dropdown hidden behind delete button. 
-
-- Fix: JQuery: "coverTrigger: False"
 
 Browse unavailable to non users which causes an error
 
@@ -89,7 +67,7 @@ Carousel keeps randomly collapsing, particularly on mobile.
 
 Edit and Delete functions not showing when search has been implemented. 
 
-- Fix: in App.py "username" was added as a variable in @app.route("/search"). The edit and delete options are available based on the user that added that work. Therefore the username needed to still be read after the search.
+- Fix: in App.py "username" was added as a variable in `@app.route("/search")`. The edit and delete options are available based on the user that added that work. Therefore the username needed to still be read after the search.
 
 Delete function dropdown not working for every composer/work. Often deleting incorrect ObjectId.
 
@@ -107,6 +85,39 @@ If no string value for spotify url, the new tab opens at the start of the browse
 
 - Fix: changed button to only display if there is any value in the string associated with the URL in the database.
 
-If piece is edited without composer image uploaded in the meantime, no image displays (this is because, now the composer exists in the database but stall has no related image. But as the object now exists in the work part of the database, it is providing an empty string as the image information.)
+If piece is edited without composer image uploaded in the meantime, no image displays (this is because, now the composer exists in the database but still has no related image. But as the object now exists in the work part of the database, it is providing an empty string as the image information.)
 
-- Fix: as above, changed non-cello image to only display if there is any value in the string associated with the image in the database, instead of only displaying if the object doesn't exist.
+- Fix: as for the spotify link issue, changed non-cello image to only display if there is any value in the string associated with the image in the database, instead of only displaying if the object doesn't exist.
+
+Home page is cluttered and uninteresting
+
+- Fix: A simplified home page with a brief site description under a hero image and a call to action button.
+
+New visitor to the site should be able to see the library, to have an idea of what the site is about.
+
+- Fix: User can browse the library, but not search or alter it in any way. A prompt above the library carousel tells them these functions are available when logged in. 
+
+"Choose Genre" is not an obvious form field to add a work. This is causing confusion when trying to add a work.
+
+- Fix:  This was a difficult one to fix technically. As it is a dropdown menu, by default there is always a 'selected' option. The only solution I could come up with, was to mark required fields with an asterisk and put a 'required field' key at the top of the form.
+
+# Lighthouse Reports
+
+[HomePageLoggedIn](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/HomeLoggedInLighthouse.png)
+
+[HomePageLoggedOut](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/HomeLoggedOutLighthouse.png)
+
+[Browse](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/BrowseLighthouse.png)
+
+[Login](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/LogInLighthouse.png)
+
+[Register](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/RegisterLighthouse.png)
+
+[Add Work](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/AddPieceLighthouse.png)
+
+[Edit Work](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/EditPieceLighthouse.png)
+
+[Composers](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/ComposersLighthouse.png)
+
+[Edit Composer](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/EditComposerLighthouse.png)
+

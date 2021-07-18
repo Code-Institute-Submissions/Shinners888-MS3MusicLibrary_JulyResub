@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<h4 class="headerBar white-text center">Add to our library <a href="{{ url_for('add_work') }}"><u
+<h4 class="headerBar white-text center hide-on-small-only">Add to our library <a href="{{ url_for('add_work') }}"><u
             class="white-text">here!</u></a>
 </h4>
+<h5 class="hide-on-med-and-up headerBar white-text center">Add to our library <a href="{{ url_for('add_work') }}"><u
+            class="white-text">here!</u></a>
+</h5>
 <div class="workInputCard">
     <div class="carousel carousel-slider center">
         <div class="carousel-fixed-item center">
@@ -30,6 +33,8 @@
             {% if work.url|length != 0 %}
             <a class="spotifyButton" href="{{ work.url }}" target="_blank">Listen Here <i
                     class="fab fa-spotify"></i></a>
+            {% else %}
+            <p class="white-text">No link to listen provided</p>
             {% endif %}
 
             {% if username == work.user_added or username == "admin" %}

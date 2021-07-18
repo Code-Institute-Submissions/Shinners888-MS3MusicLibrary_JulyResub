@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
+<div class="row hide-on-small-only">
     <div class="col s6">
         <a href="{{ url_for('browse') }}">
             <h4 class="white-text">Back<i class="fas fa-arrow-left white-text left"></i></h4>
@@ -9,14 +9,25 @@
         <h4 class="white-text right">Add a Piece</h4>
     </div>
 </div>
+<div class="row hide-on-med-and-up">
+    <div class="col s6">
+        <a href="{{ url_for('browse') }}">
+            <h5 class="white-text">Back<i class="fas fa-arrow-left white-text left"></i></h5>
+        </a></div>
+    <div class="col s6">
+        <h5 class="white-text right">Add a Piece</h5>
+    </div>
+</div>
 <!--CREATE SECTION-->
 <div class="row">
+
     <form class="col s12 workInputCard" method="POST" action="{{ url_for('add_work') }}">
+        <p class="left grey-text"><u class="grey-text"></u> * required field</u></p>
         <div class="row">
             <div class="input-field col s12">
-                <label>Choose a Genre*</label>
+
                 <select id="genre_name" name="genre_name" class="validate grey-text" required>
-                    <option value="" selected disabled></option>
+                    <option value="" selected disabled>Choose a Genre*</option>
                     {% for genre in genres %}
                     <option value="{{ genre.genre_name }}">{{ genre.genre_name }} : {{ genre.timeline }}</option>
                     {% endfor %}
@@ -43,9 +54,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <input id="url" name="url" type="text" autocomplete="off" class="validate">
-                <label for="url">Paste a link to listen</label>
+                <label for="url">Spotify/Youtube link to the music</label>
             </div>
-            <p class="center grey-text">* = required field</p>
+
         </div>
 
         <button type="submit" class="btn-floating btn-large waves-effect addButton"><i

@@ -18,39 +18,50 @@ Features include:
 
 ## Goals
 
-To gather a community of people who like classical music, and recommend music to those who are new to the genre and may find it overwhelming. The symphony orchestra will incorporate new uploads to the site in performances, and discounts will be available to members of the community for those concerts.
+To gather a community of people who like classical music, and recommend music to those who are new to the genre and may find it overwhelming. The symphony orchestra will make a point of performing user favourites at their concerts, and discounts will be available to members of the community for those concerts.
 
-## UX
+## User Stories
 
-This is for people who would like to listen to more classical music but don't know where to begin, or classical music lovers who want to share their favourite pieces. The orchestra notes what new additions there are, and if possible, will perform them at upcoming concerts.
+- I am a fan of classical music and am looking to find new suggestions for good pieces to hear.
 
-It is a basic layout, easy to follow. The 'create' and 'update' pages are not available from the navbar and have 'go back' buttons easily visible at the top of the page.
+- I am new to classical music and trying to find more pieces to listen to and appreciate the genre.
 
-#### Not logged in
+- I am a fan of the orchestra and would like to bring my favourite pieces to their attention, with the intention that they will perform these pieces.
 
- - You will land on the MUSO page which will tell you a little bit about the orchestra's site and direct you to register or login.
+I want a simple site with a library of pieces to listen to. I would like the option to browse the library, without needing to register or log in. I understand that this has limited features and if I wish to avail of more features, be able to engage with the site, or get discounts to the orchestra concerts, I need to register and log in.
+
+# UX
+### Design
+
+In honour of the unsociable unicorns after which the site is named, the navbar, buttons and footer are made up of bright, psychadelic colours traditionally associated with unicorns, around a dark monochrome website.
+
+### Not logged in
+
+ - You will land on the MUSO page which will tell you a little bit about the orchestra's site and direct you to register or login. There is a call to action to browse the library. Here you can see what has been uploaded, but you cannot add to it or search. For this, you must be logged in.
 
  - Register to create an account/log in.
 
-#### Logged in
+### Logged in
 
- - You will be taken immediately to the home page.
+ - You will be taken immediately to the home page, where your own uploads are listed. There is a prompt to go to the full library to browse.
 
- - Browse what others have uploaded and follow the spotify link to listen. This will open in a new tab or the app, so the user can continue to browse while listening.
+ - Browse what others have uploaded and follow the spotify link to listen. This will open in a new tab or the app, so the user can continue to browse while listening. If the link is faulty, an error page will direct you to return to browse, or open spotify and search for yourself.
 
  - On the browse page is a prompt to add to the library. If the user knows a piece they think others might like, they can follow the link.
 
- - If the piece has been added by the current user, they have the option to update or delete the piece. The admin user also has these privileges, in case a user misspells or duplicates anything. The delete button contains a dropdown 
+ - If the piece has been added by the current user, they have the option to update or delete the piece. The admin user also has these privileges, in case a user misspells or duplicates anything. The delete button redirects to a confirmation page, to ensure they intended to delete.
 
- - Below again is a search bar where users can search by composer or genre, with a button to clear search options. 
+ - Below again is a search bar where users can search by composer or genre, with a button - "see all" - to clear search options. 
+
+ - There is a log out button on the navbar, this prompts a confirmation of intent in case it was pressed accidentally.
+
+ - There is a navbar available at all times to the user, and most pages have a 'return to browse' button, as this page is the feature page of the site.
 
  #### Admin
 
- As well as editing or deleting works, an admin can edit composer information. If a new composer has been entered into the database, they will not yet have a related photo. The admin can upload a photo in the composers page. They can then click edit and save on any works by that composer to have the image displayed.
+ - As well as editing or deleting works, an admin can edit composer information. If a new composer has been entered into the database, they will not yet have a related photo. The admin can upload a photo in the composers page. They can then click edit-and-save for any works by the respective composer, in order to have the new image displayed.
 
-### Aesthetic
 
-In honour of the unsociable unicorns after which the site is named, the navbar, buttons and footer are made up of bright, psychadelic colours traditionally associated with unicorns, around a dark monochrome website.
 
 
 
@@ -60,7 +71,7 @@ In honour of the unsociable unicorns after which the site is named, the navbar, 
 
 Create a user name and password which will be stored in the database with a password hash for security.
 
-Add your favourite piece with some prompted information, and a link to listen to the piece/work, to be displayed in the browse section carousel
+Add your favourite piece with some prompted information (a star denotes the required fields), and a link to listen to the piece/work, to be displayed in the browse section carousel
 
  - Read
 
@@ -70,20 +81,21 @@ For the Admin, the composers page has a list of all composers in the database.
 
  - Update
 
-Pieces can be edited by the admin, or the same user that created them. All 'work' information can be updated.
+Pieces can be edited by the admin, or the same user that created them. All 'works' information can be updated.
 
-The admin can edit composer information, adding an image or correctine spelling issues which could lead to duplicates of a composer.
+The admin can edit composer information, adding an image or correcting spelling issues, which could lead to duplicates of a composer.
 
  - Delete
 
-A user who created a work, or the admin can delete said work. They will be redirected to an 'are you sure you want to delete "X work"' page to ensure they do not accidentally delete anything. 
+A user who created a work, or the admin, can delete said work. They will be redirected to an 'are you sure you want to delete "X work"' page to ensure they do not accidentally delete anything. 
 
-The admin can delete composers from the composer page. This is handy incase someone creates a duplicate by misspelling. Similarly they will be redirected to an 'are you sure you want to delete "X composer"' page. 
+The admin can delete composers from the composer page. This is handy in case someone creates a duplicate by misspelling. Similarly they will be redirected to an 'are you sure you want to delete "X composer"' page. 
 
 
 
 # Execution
 
+## Technologies 
 This project was created using:
 
  - HTML (Note: my own class/id names are created in camelCase while materialize is hyphenated. Python variables are created with snake_case)
@@ -99,7 +111,7 @@ This project was created using:
 
 This Project was deployed using [Heroku](https://www.heroku.com/about)
 
-# Resources
+## Resources
 
  - Code Institute mini project lessons
  - Slack
@@ -138,12 +150,12 @@ Please note these were early sketches and some elements do not represent the wor
 
 ## Database Creation
 
-In MongoDB I created a music library database with four collections: 'genres', 'site_users', 'composers' and 'works'. 'Works' is the main collection and gathers data from each other collection. 
+In MongoDB I created a music library database with four collections: 'genres', 'site_users', 'composers' and 'works'. 'Works' is the main collection and gathers data from all other collections. 
 
 -------------
 ### 1. GENRES
 
-Each genre has it's own information. To display them chronologically in the site, each has an Int ID depending on when that period of classical music occurs. This provides a reference of a time period when a user is uploading a new piece, for those who may not be sure of the classical music eras.
+Each genre has its own information. To display them chronologically in the site, each has an Int ID depending on when that period of classical music occurs. This provides a reference of a time period when a user is uploading a new piece, for those who may not be sure of the classical music eras.
 
 |  | | Genre | Chronological Genre Number (as genre_id) | Timeline |
 | -- | -- | --- | ----------- | -----------------|
@@ -201,15 +213,15 @@ The main collection of this project. The objects in this collection contain at a
 
 4. Added browse page with carousel. The carousel iterates through the works in the database and diplays each, one after the other, featuring elements of each work.
 
-5. Created the add_work function. This gives the user a selection of genres with their rough timelines for reference. The rest of the data is filled in themselves.
+5. Created the add_work function. This gives the user a selection of genres with their rough timelines for reference. The rest of the data is filled in by the user.
 
-6. Removed autocomplete from some aspects of the form as it was not aesthetically pleasant, particularly in the login section. It is helpful in adding a composer or searching.
+6. Removed autocomplete from some aspects of the form as it was not aesthetically pleasing, particularly in the login section. It is helpful in adding a composer or searching.
 
 7. Altered JS for the carousel as clicking any buttons on it were overridden by the carousels inbuilt turn function.
 
-8. Created index text search via python3 - from app import mongo. Will search the works collection for a composer name or genre.
+8. Created index text search via python3 - from app import mongo. This allows the user to search the works collection for a composer name or genre.
 
-9. Added and wired up edit and delete functions, only available to the user that added that work_id, or to the admin.
+9. Added functional edit and delete functions, only available to the user that added that work_id, or to the admin.
 
 10. Styled and changed general layout of site. Discarded pointless pages, added a modal to confirm logout request, and dropdown to confirm delete request.
 
@@ -218,6 +230,16 @@ The main collection of this project. The objects in this collection contain at a
 12. Added method to delete composer. It is possible that duplicates would happen due to spelling errors. The admin can update incorrect spelling in the work and remove the incorrect/duplicate composers.
 
 13. Tidied code and commented.
+
+14. Included username as a variable in the search function in app.py. As the edit and delete buttons are displayed based on the username of the person browsing, these buttons were not showing up when the search function was implemented.
+
+15. Set a minimum height for the carousel as it was collapsing intermittently, blocking information and buttons fron the users view.
+
+16. Changed delete button from a dropdown menu to a 'redirect to confirm' page.
+
+17. Changed home page for both logged out and logged in to be more aesthetically pleasing, with a CTA button to browse the library.
+
+18. Changed session user 'home' page to a 'my music' page, displaying what said user has uploaded to the library.
 
 14. Set debug to False
 
