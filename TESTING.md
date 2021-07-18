@@ -101,6 +101,21 @@ New visitor to the site should be able to see the library, to have an idea of wh
 
 - Fix:  This was a difficult one to fix technically. As it is a dropdown menu, by default there is always a 'selected' option. The only solution I could come up with, was to mark required fields with an asterisk and put a 'required field' key at the top of the form.
 
+
+# Existing Bugs
+
+- The genre dropdown in the add work section. The asterisk is not an elegant fix and this can potentially still be confusing to a user.
+
+- If any string is added to the composer image, or spotify/youtube link feild, this will cause error. For the composer, there will be no image, and the faulty link to Spotify or Youtube will throw a 404 error.
+
+- On particularly slim mobile devices, the hero image is not clear.
+
+- If a user adds a more wordy description or title of a piece, this could push the edit/delete buttons out of the carousel.
+
+- Env is imported but never used, showing up as error in project
+
+- Flash messages section in 'base.html' lacks a heading, according to the validator. The jinja code is necessary as the first line in this section.
+
 # Lighthouse Reports
 
 [HomePageLoggedIn](https://github.com/Shinners888/MS3MusicLibrary/blob/master/assets/lighthouseReports/HomeLoggedInLighthouse.png)

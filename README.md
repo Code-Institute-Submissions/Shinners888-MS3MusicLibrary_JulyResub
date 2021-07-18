@@ -1,11 +1,11 @@
-# Music Library Collaboration
+# Music Library Collaborative
 
 ## Data-Centric Development Project MS3 - Code Institute
 ![Display](assets/projectImages/screensimage.png)
 
-MUSO - The Misanthropic Unicorns Symphony Orchestra presents "Bringing Classic Back"
+MUSO - The Misanthropic Unicorns Symphony Orchestra's Music Library Collective
 
-A community built collection of favourites in the various classical/art music genres, to reignite a love of the music and repopularise it.
+A community built collection of favourite works in the various classical/art music genres, to repopularise classical music in the 21st Century.
 
 Features include:
 - The ability to browse favourites uploaded by other users
@@ -18,13 +18,13 @@ Features include:
 
 ## Goals
 
-To gather a community of people who like classical music, and recommend music to those who are new to the genre and may find it overwhelming. The symphony orchestra will make a point of performing user favourites at their concerts, and discounts will be available to members of the community for those concerts.
+To provide a place for a community of people who like classical music, and recommend music to those who are new to the genre and may find it overwhelming. The symphony orchestra will make a point of performing user favourites at their concerts, and discounts will be available to members of the community for those concerts.
 
 ## User Stories
 
 - I am a fan of classical music and am looking to find new suggestions for good pieces to hear.
 
-- I am new to classical music and trying to find more pieces to listen to and appreciate the genre.
+- I am new to classical music and trying to find more pieces to listen to, to appreciate the genre.
 
 - I am a fan of the orchestra and would like to bring my favourite pieces to their attention, with the intention that they will perform these pieces.
 
@@ -43,57 +43,28 @@ In honour of the unsociable unicorns after which the site is named, the navbar, 
 
 ### Logged in
 
- - You will be taken immediately to the home page, where your own uploads are listed. There is a prompt to go to the full library to browse.
+ - You will be taken immediately to your 'My Music' page, where your own uploads are listed. There is a prompt to go to the full library to browse.
 
- - Browse what others have uploaded and follow the spotify link to listen. This will open in a new tab or the app, so the user can continue to browse while listening. If the link is faulty, an error page will direct you to return to browse, or open spotify and search for yourself.
+ - Browse what others have uploaded and follow the spotify link to listen. These will open in a new tab, so the user can continue to browse while listening. If the link is faulty, an error page will direct you to return to browse, or open spotify and search for yourself.
 
  - On the browse page is a prompt to add to the library. If the user knows a piece they think others might like, they can follow the link.
 
- - If the piece has been added by the current user, they have the option to update or delete the piece. The admin user also has these privileges, in case a user misspells or duplicates anything. The delete button redirects to a confirmation page, to ensure they intended to delete.
+ - If the piece has been added by the current user, they have the option to update or delete the piece from the library carousel. The admin user also has these privileges, in case a user misspells or duplicates anything. The delete button redirects to a confirmation page, to ensure they intended to delete.
 
  - Below again is a search bar where users can search by composer or genre, with a button - "see all" - to clear search options. 
 
  - There is a log out button on the navbar, this prompts a confirmation of intent in case it was pressed accidentally.
 
- - There is a navbar available at all times to the user, and most pages have a 'return to browse' button, as this page is the feature page of the site.
+ - There is a navbar available at all times to the user, and most pages have a 'return to browse' button, as 'Browse' is the feature page of the site.
 
  #### Admin
 
  - As well as editing or deleting works, an admin can edit composer information. If a new composer has been entered into the database, they will not yet have a related photo. The admin can upload a photo in the composers page. They can then click edit-and-save for any works by the respective composer, in order to have the new image displayed.
 
 
+[User Testing](https://github.com/Shinners888/MS3MusicLibrary/blob/master/TESTING.md)
 
-
-
-# CRUD
-
- - Create
-
-Create a user name and password which will be stored in the database with a password hash for security.
-
-Add your favourite piece with some prompted information (a star denotes the required fields), and a link to listen to the piece/work, to be displayed in the browse section carousel
-
- - Read
-
-The Browse page reads and displays all infomation in the works collection, gathers descriptive information from the genres collection, and displays edit/delete buttons to the admin or the user who originally created the related work.
-
-For the Admin, the composers page has a list of all composers in the database.
-
- - Update
-
-Pieces can be edited by the admin, or the same user that created them. All 'works' information can be updated.
-
-The admin can edit composer information, adding an image or correcting spelling issues, which could lead to duplicates of a composer.
-
- - Delete
-
-A user who created a work, or the admin, can delete said work. They will be redirected to an 'are you sure you want to delete "X work"' page to ensure they do not accidentally delete anything. 
-
-The admin can delete composers from the composer page. This is handy in case someone creates a duplicate by misspelling. Similarly they will be redirected to an 'are you sure you want to delete "X composer"' page. 
-
-
-
-# Execution
+# Technologies and Resources Used
 
 ## Technologies 
 This project was created using:
@@ -122,6 +93,10 @@ This Project was deployed using [Heroku](https://www.heroku.com/about)
  - [Favicon.io](https://favicon.io/)
  - [Clipart Key](https://www.clipartkey.com/view/bhiwTb_illustration/)
  - [Spotify](https://open.spotify.com/)
+ - [Am I Responsive](http://ami.responsivedesign.is/)
+ - [Python Validator](http://pep8online.com/)
+ - [Nu Validator](https://validator.w3.org/nu/?doc=http%3A%2F%2Fbringing-classic-back.herokuapp.com%2Fhome)
+
 
 # Wireframes
 
@@ -137,16 +112,42 @@ This Project was deployed using [Heroku](https://www.heroku.com/about)
 
 Please note these were early sketches and some elements do not represent the working website
 
-# Data Diagram 
+# CRUD, Data Diagram and Database
+
+## Crud 
+
+ - Create
+
+Create a user name and password which will be stored in the database with a password hash for security.
+
+Add your favourite piece with some prompted information (a star denotes the required fields), and a link to listen to the piece/work, to be displayed in the browsing carousel
+
+ - Read
+
+The Browse page reads and displays all infomation in the works collection, gathers descriptive information from the genres collection, images from the composer collection, and displays edit/delete buttons to the admin or the user who originally created the related work.
+
+For the Admin, the composers page has a list of all composers in the database.
+
+ - Update
+
+Pieces can be edited by the admin, or the same user that created them. All 'works' information can be updated.
+
+The admin can edit composer information, adding an image or correcting spelling issues, which could lead to duplicates of a composer.
+
+ - Delete
+
+A user who created a work, or the admin, can delete said work. They will be redirected to an 'are you sure you want to delete "X work"' page to ensure they do not accidentally delete anything. 
+
+The admin can delete composers from the composer page. This is handy in case someone creates a duplicate by misspelling. Similarly they will be redirected to an 'are you sure you want to delete "X composer"' page. 
+
+
+## Data Diagram 
 
 [Data Diagram - dbdiagram.io](https://dbdiagram.io/d/607a0563ef1b8f6b3dd5ac4e)
 
 ![Database layout image](assets/projectImages/DBMUSO.png)
 
 
-
-
-# Creation and testing
 
 ## Database Creation
 
@@ -204,7 +205,7 @@ The main collection of this project. The objects in this collection contain at a
 ![Database layout image](assets/projectImages/worksdb.png)
 ------------------
 
-## Creation 
+# Application Creation 
 1. Initial Commits: Imported flask, flask_pymongo, dnspython, and os, linked to Heroku and MongoDB, tested that an HTML page would display print from app.py. Created a base HTML page.
 
 2. Added Registration and login pages linked to site_users collection in MongoDB. Styled base html, added flash messages and a method to display them (in base.html) Checked all git push commands deployed to Heroku.
@@ -241,9 +242,12 @@ The main collection of this project. The objects in this collection contain at a
 
 18. Changed session user 'home' page to a 'my music' page, displaying what said user has uploaded to the library.
 
-14. Set debug to False
+19. Added flash message in case there are no search results.
 
-## Deployment
+20. Set debug to False
+
+# Deployment
+## Git Deployment
 
 - Create env.py file with the following fields:
 
@@ -251,45 +255,80 @@ import os
 
 os.environ.setdefault("IP", "0.0.0.0")<br>
 os.environ.setdefault("PORT", "5000")<br>
-os.environ.setdefault("SECRET_KEY", "")<br>
-os.environ.setdefault("MONGO_URI", "")<br>
-os.environ.setdefault("MONGO_DBNAME", "CLUSTER NAME HERE")
+os.environ.setdefault("SECRET_KEY", "secret_key_here")<br>
+os.environ.setdefault("MONGO_URI", "mongodb+srv://shinners:pword@cluster0.hsdbq.mongodb.net/music_library?retryWrites=true&w=majority")<br>
+os.environ.setdefault("MONGO_DBNAME", "music_library")
 
-- push env.py to gitignore with __pycache_/
+- push 'env.py' to gitignore with `__pycache__/`
 
-- Type "pip3 freeze --local > requirements.txt" in the terminal (so Heroku will know what is required to run the app)
+- Type `pip3 freeze --local > requirements.txt` in the terminal so Heroku, (deployment instructions below) will know what is required to run the app
 
 - Use pip3 to install flask, flask_pymongo and dnspython
 
 - The app can now be run locally by typing python3 app.py in the terminal
 
-Heroku Deployment
 
-Deployment was executed early on, with commits and pushes updateing the app.This ensured there was nothing missing early on that would cause issues later.
+## Heroku Deployment
 
-- Following creation of requirements.txt above, create a Procfile by typing "echo web: python app.py > Procfile" in the terminal
+Deployment was executed early on, with commits and pushes updating the app. This ensured there was nothing missing early on that would cause issues later.
 
-In Heroku:
-- Create new app
+To deploy the app to heroku:
 
-- Choose an app name and your country and click create app
+- Ensure `requirements.txt` was created as outlined above.
 
-- Go to the deploy tab and choose "Connect to Github"
+- Following creation of `requirements.txt` above, create a Procfile by typing `echo web: python app.py > Procfile` in the terminal
 
-- Connect to project repository
+- Add and commit the requirements and Procfile, and push to GitHub.
 
-- Go to settings > reveal config vars.
+- Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Name your app and set your region.
 
-Copy in the key, value pairs to match those in env.py
+- From the heroku dashboard in your new app, click on "Deploy" then "Deployment method" and pick GitHub.
 
-- If requirements.txt and Procfile are committed, go to the deploy tab in Heroku and Enable Automatic Deployment
+- Type the name of the Github Repository that the app is being built in, and confirm.
 
-Deploy Branch. This will take a few minutes. Anything you push from Github now will automatically update in the Heroku App
+- In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+
+- Set the config vars to match those in env.py above:
+
+- To get your MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
+
+- In the heroku dashboard, click "Deploy".
+
+- In the "Manual Deployment" section of this page, select master branch and then click "Deploy Branch".
+
+- This may take some time, but the site is now successfully deployed. Any further changes commited to the repository will update in Heroku.
+
+# Fork and Clone
+Fork
+
+- Login or Sign Up to [GitHub](https://github.com/).
+- On GitHub, go to [MS3 Music Library](https://github.com/Shinners888/MS3MusicLibrary).
+- On the top right of the screen, click "Fork".
+- Create an env.py file with your own values, as above
+- in the terminal, type:
+- - `pip3 install flask`
+- - `pip3 install flask_pymongo`
+- - `pip3 install dnspython`
+- - `install -r requirements.txt`
+- - `python3 app.py` (to run project locally, your version may require a different command)
+
+Cloning
+
+- Login or Sign Up to [GitHub](https://github.com/).
+- On GitHub, go to [MS3 Music Library](https://github.com/Shinners888/MS3MusicLibrary).
+- Beside the green gitpod button, click "Code".
+- Here you can copy the link to clone using HTTPS.
+- Open Git Bash.
+- Change the current working directory to the new location, where you want the cloned directory to be.
+- Type `git clone`, and then paste the HTTPS URL from above
+- Press Enter, and your local clone will be created.
+- As in the fork steps, create the env.py file and install all requirements etc.
+Check [Github Docs](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository#cloning-a-repository-to-github-desktop) for further information.
 
 
 # Possible Future Features
 
-An upvote downvote system, with a possibility to search by votes.
+An upvote downvote system, with a possibility to search by popularity.
 
 A comments section to discuss the pieces.
 
@@ -308,7 +347,9 @@ Cello Image: [Dominic Scythe on Unsplash](https://unsplash.com/photos/lDKmtwvrZZ
 
 Unicorn Favicon: [Clipart Key](https://www.clipartkey.com/view/bhiwTb_illustration/)
 
+README based on [CI Sample README](https://github.com/Code-Institute-Solutions/SampleREADME)
+
 # Acknowledgments
 
-I'd like to thank my mentor Nishant Kumar for continuing support thoughout the project and the course as a whole. And my tester Eileen for her critical UX eye!
+I would like to thank my mentor Nishant Kumar for his continued support thoughout the project and the course as a whole. I would also like to thank Declan and Eileen, for testing the app for functionality and UX.
 
