@@ -70,9 +70,9 @@ html * {
 }
 
 .imageCardText {
-    background-color: rgba(245, 245, 245, 0.6);
+    background-color: rgba(223, 223, 223, 0.4);
     line-height: 43px;
-    border-radius: 2px;
+    border-radius: 10px;
 }
 
 .textInputCard,
