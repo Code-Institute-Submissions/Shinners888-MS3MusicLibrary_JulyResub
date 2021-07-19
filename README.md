@@ -3,6 +3,31 @@
 ## Data-Centric Development Project MS3 - Code Institute
 ![Display](assets/projectImages/screensimage1.png)
 
+
+### Table of Contents
+[Introduction](#introduction)<br>
+[UX](#ux)<br>
+[Technologies and Resources Used](#technologies-and-resources-used)<br>
+[Wireframes](#wireframes)<br>
+[CRUD, Data Diagram and Database](#crud-data-diagram-and-database)<br>
+[Application Creation](#application-creation)<br>
+[Deployment](#deployment)<br>
+[Fork and Clone](#fork-and-clone)<br>
+[Possible Future Features](#possible-future-features)<br>
+[Credits](#credits)<br>
+[Acknowledgements](#acknowledgements)<br>
+
+Testing and User Testing Outlined in [TESTING.md](https://github.com/Shinners888/MS3MusicLibrary/blob/master/TESTING.md)
+
+-----
+
+### **[VIEW THE LIVE PROJECT HERE](http://bringing-classic-back.herokuapp.com/home)**
+
+
+-----
+
+# Introduction
+
 MUSO - The Misanthropic Unicorns Symphony Orchestra's Music Library Collaborative
 
 A community built collection of favourite works in the various classical/art music genres, to repopularise classical music in the 21st Century.
@@ -14,7 +39,6 @@ Features include:
 - The ability to search by composer or genre
 - Discounts to performances by the symphony orchestra for registered users
 
-[View the live project here](http://bringing-classic-back.herokuapp.com/home)
 
 ## Goals
 
@@ -31,6 +55,7 @@ To provide a place for a community of people who like classical music, and recom
 I want a simple site with a library of pieces to listen to. I would like the option to browse the library, without needing to register or log in. I understand that this has limited features and if I wish to avail of more features, be able to engage with the site, or get discounts to the orchestra concerts, I need to register and log in.
 
 # UX
+
 ### Design
 
 In honour of the unsociable unicorns after which the site is named, the navbar, buttons and footer are made up of bright, psychadelic colours traditionally associated with unicorns, around a dark monochrome website.
@@ -354,7 +379,7 @@ Unicorn Favicon: [Clipart Key](https://www.clipartkey.com/view/bhiwTb_illustrati
 
 README based on [CI Sample README](https://github.com/Code-Institute-Solutions/SampleREADME)
 
-# Acknowledgments
+# Acknowledgements
 
 I would like to thank my mentor Nishant Kumar for his continued support thoughout the project and the course as a whole. I would also like to thank Declan and Eileen, for testing the app for functionality and UX.
 
